@@ -39,7 +39,7 @@
             <p class="semi-bold no-margin">Jeigu turite klausimų, prasome susisiekti su mumis.</p>
             <br>
             <br>
-            <form role="form" autocomplete="off" class="m-t-15" id="contact-form" action="_lib/mail.php" method="post">
+            <form role="form" autocomplete="off" class="m-t-15" id="contact-form" action="_lib/mail.php" method="post" #regForm="ngForm" (ngSubmit)="onSubmit()">
 
 
               <div class="information-block">
@@ -49,7 +49,7 @@
 
                 <div class="form-group form-group-default form-group-default-select2 required">
                   <label>Mokslinis laipsnis</label>
-                  <select class="full-width" data-placeholder="Pasirinkite laipsnį" data-init-plugin="select2">
+                  <select class="full-width" data-placeholder="Pasirinkite laipsnį" data-init-plugin="select2" ngControl="degree" [(ngModel)]="newParticipant.firstName">
                     <optgroup label="Laipsniai">
                       <option value="DR">Daktaras</option>
                       <option value="PR">Profesorius</option>
@@ -61,25 +61,25 @@
                   <div class="col-sm-6">
                     <div class="form-group form-group-default required">
                       <label>Vardas</label>
-                      <input type="text" name="name" class="form-control" required>
+                      <input type="text" name="name" class="form-control" ngControl="firstName" required [(ngModel)]="newParticipant.firstName">
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group form-group-default required">
                       <label>Pavardė</label>
-                      <input type="text" name="last-name" class="form-control" required>
+                      <input type="text" name="last-name" class="form-control" ngControl="lastName" required [(ngModel)]="newParticipant.lastName">
                     </div>
                   </div>
                 </div>
                 <div class="form-group form-group-default required">
                   <label>Telefono numeris</label>
-                  <input type="tel" name="tel" placeholder="Įveskite savo telefono numerį.." class="form-control"
-                         required>
+                  <input type="tel" name="tel" placeholder="Įveskite savo telefono numerį.." class="form-control" ngControl="phoneNumber"
+                         [(ngModel)]="newParticipant.phoneNumber" required>
                 </div>
                 <div class="form-group form-group-default required">
                   <label>El. paštas</label>
-                  <input type="email" name="email" placeholder="Įveskite savo elektroninį paštą.." class="form-control"
-                         required>
+                  <input type="email" name="email" placeholder="Įveskite savo elektroninį paštą.." class="form-control" ngControl="email"
+                         [(ngModel)]="newParticipant.email" required>
                 </div>
 
               </div>
@@ -92,20 +92,20 @@
 
                 <div class="form-group form-group-default required">
                   <label>Pavadinimas</label>
-                  <input type="text" name="project-name" placeholder="Pranešimo pavadinimas.." class="form-control"
-                         required>
+                  <input type="text" name="project-name" placeholder="Pranešimo pavadinimas.." class="form-control" ngControl="annName"
+                         [(ngModel)]="newParticipant.annName" required>
                 </div>
 
                 <div class="form-group form-group-default required">
                   <label>Pranešimo autoriai ir afiliacijos</label>
                   <textarea name="authors" placeholder="Pranešimo autoriai ir afiliacijos.." style="height:100px"
-                            class="form-control" required></textarea>
+                            class="form-control" ngControl="annAuthors" [(ngModel)]="newParticipant.annAuthors" required></textarea>
                 </div>
 
                 <div class="form-group form-group-default required">
                   <label>Pranešimo santrauka</label>
                   <textarea name="short-info" placeholder="Pranešimo santrauka (400 žodžių).." style="height:100px"
-                            class="form-control" required></textarea>
+                            class="form-control" ngControl="annSummary" [(ngModel)]="newParticipant.annSummary" required></textarea>
                 </div>
 
               </div>
@@ -167,7 +167,7 @@
               <div class="sm-p-t-10 clearfix">
                 <p class="pull-left small hint-text m-t-5 font-arial">Registuodamasis aš sutinku, kad viršuje esanti
                   informacija yra teisinga. </p>
-                <button class="btn btn-danger font-montserrat all-caps fs-12 pull-right xs-pull-left">Registruotis
+                <button class="btn btn-danger font-montserrat all-caps fs-12 pull-right xs-pull-left" type="submit">Registruotis
                 </button>
               </div>
               <div class="clearfix"></div>

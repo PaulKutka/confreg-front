@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Participant } from 'models/participant';
 
 @Component({
   selector: 'app-registration',
@@ -10,6 +11,12 @@ export class RegistrationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  newParticipant: Participant;
+
+  onSubmit(){
+    // insert newParticipant
   }
 
 }
