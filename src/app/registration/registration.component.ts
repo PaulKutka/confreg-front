@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ParticipantService } from 'services/participant.service';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.css'],
+  providers: [ ParticipantService ]
 })
 export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private participantService: ParticipantService) { }
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -19,7 +21,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   submitButtonClick(event) {
-    console.log(this.registerForm.value);
+    this.participantService.insertParticipant(this.registerForm.value);
   }
 
 }
