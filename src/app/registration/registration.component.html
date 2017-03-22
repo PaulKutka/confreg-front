@@ -47,7 +47,7 @@
 
                 <div class="form-group form-group-default form-group-default-select2 required">
                   <label>Mokslinis laipsnis</label>
-                  <select class="full-width" data-placeholder="Pasirinkite laipsnį" data-init-plugin="select2">
+                  <select class="full-width" data-placeholder="Pasirinkite laipsnį" data-init-plugin="select2" formControlName="degree">
                     <optgroup label="Laipsniai">
                       <option value="DR">Daktaras</option>
                       <option value="PR">Profesorius</option>
@@ -65,19 +65,19 @@
                   <div class="col-sm-6">
                     <div class="form-group form-group-default required">
                       <label>Pavardė</label>
-                      <input type="text" name="last-name" class="form-control" required>
+                      <input type="text" name="last-name" class="form-control" formControlName="lastName" required>
                     </div>
                   </div>
                 </div>
                 <div class="form-group form-group-default required">
                   <label>Telefono numeris</label>
                   <input type="tel" name="tel" placeholder="Įveskite savo telefono numerį.." class="form-control"
-                         required>
+                         formControlName="phone" required>
                 </div>
                 <div class="form-group form-group-default required">
                   <label>El. paštas</label>
                   <input type="email" name="email" placeholder="Įveskite savo elektroninį paštą.." class="form-control"
-                         required>
+                         formControlName="email" required>
                 </div>
 
               </div>
@@ -91,19 +91,19 @@
                 <div class="form-group form-group-default required">
                   <label>Pavadinimas</label>
                   <input type="text" name="project-name" placeholder="Pranešimo pavadinimas.." class="form-control"
-                         required>
+                         formControlName="projectName" required>
                 </div>
 
                 <div class="form-group form-group-default required">
                   <label>Pranešimo autoriai ir afiliacijos</label>
                   <textarea name="authors" placeholder="Pranešimo autoriai ir afiliacijos.." style="height:100px"
-                            class="form-control" required></textarea>
+                            class="form-control" formControlName="authors" required></textarea>
                 </div>
 
                 <div class="form-group form-group-default required">
                   <label>Pranešimo santrauka</label>
                   <textarea name="short-info" placeholder="Pranešimo santrauka (400 žodžių).." style="height:100px"
-                            class="form-control" required></textarea>
+                            class="form-control" formControlName="shortInfo" required></textarea>
                 </div>
 
               </div>
