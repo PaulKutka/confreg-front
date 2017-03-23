@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ParticipantService {
-  private insertDataSource = "https://confregistration-api-sta-pr-11.herokuapp.com/post";
+  private insertDataSource = "https://confregistration-api.herokuapp.com/post";
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
