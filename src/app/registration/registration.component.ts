@@ -16,14 +16,14 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-      degree: ['', Validators.required],
+      educationalDegree: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      phone: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
       email: ['', Validators.required],
-      projectName: ['', Validators.required],
-      authors: ['', Validators.required],
-      shortInfo: ['', Validators.required]
+      messageName: ['', Validators.required],
+      messageAuthorsAndAffiliations: ['', Validators.required],
+      messageSummary: ['', Validators.required]
     });
   }
 
