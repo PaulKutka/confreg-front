@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Participant } from 'models/participant';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ParticipantService } from 'services/participant.service';
 
 @Component({
@@ -10,15 +10,25 @@ import { ParticipantService } from 'services/participant.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private participantService: ParticipantService) { }
+  registerForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private participantService: ParticipantService) { }
 
   ngOnInit() {
+    this.registerForm = this.fb.group({
+      educationalDegree: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      email: ['', Validators.required],
+      messageName: ['', Validators.required],
+      messageAuthorsAndAffiliations: ['', Validators.required],
+      messageSummary: ['', Validators.required]
+    });
   }
 
-  newParticipant: Participant;
-
-  onSubmit() {
-      this.participantService.insertParticipant(this.newParticipant);
+  submitButtonClick(event) {
+    this.participantService.insertParticipant(this.registerForm.value);
   }
 
 }
