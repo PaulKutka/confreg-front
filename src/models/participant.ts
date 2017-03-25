@@ -1,4 +1,6 @@
 export class Participant {
+
+
     degree: string;
     firstName: string;
     lastName: string;

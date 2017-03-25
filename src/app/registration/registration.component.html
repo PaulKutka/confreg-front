@@ -1,242 +1,130 @@
-<!-- BEGIN HEADER -->
-<nav class="header static" data-pages="header">
-  <nav class="header relative">
-    <div class="container relative">
-      <div class="pull-left">
-        <div class="header-inner">
-          <img src="assets/images/logo.jpg" class="logo" width="152" height="61"
-               data-src-retina="assets/images/logo.jpg" alt="">
-        </div>
+<div id="kube-component" class="content">
+  <form novalidate class="form" [formGroup]="registerForm" (ngSubmit)="submitButtonClick($event)">
+    <fieldset formGroupName="user">
+      <legend>Asmenine informacija</legend>
+      <!--PRASIDEDA LAIPSNIS-->
+      <div class="form-item">
+        <label>Mokslinis laipsnis</label>
+        <select formControlName="userDegree">
+          <option value="Daktaras">Daktaras</option>
+          <option value="Profesorius">Profesorius</option>
+          <option value="Kita">Kita</option>
+        </select>
       </div>
-      <div class="visible-sm-inline visible-xs-inline menu-toggler pull-right" data-pages="header-toggle"
-           data-pages-element="#header">
-        <div class="one"></div>
-        <div class="two"></div>
-        <div class="three"></div>
+      <!--BAIGIASI LAIPSNIS-->
+      <!--PRASIDEDA VARDAS-->
+      <div class="form-item">
+        <label>Vardas</label>
+        <input type="text" name="userName" class="w50" formControlName="userName" required>
       </div>
-      <div class="pull-right hidden-sm hidden-xs col-sm-6">
-        <div class="header-inner text-right">
-          <a class="m-r-15 hint-text link text-black b-r b-grey p-r-20" href="#"></a>
-          <p class="font-montserrat fs-13 text-master p-t-20 inline ">+370 61894512 <i class="m-l-10 fa fa-phone"></i>
-          </p>
-        </div>
+      <!--BAIGIASI VARDAS
+      <!--PRASIDEDA PAVARDE-->
+      <div class="form-item">
+        <label>Pavardė</label>
+        <input type="text" name="userSurname" class="w50" formControlName="userSurname" required>
       </div>
-    </div>
-  </nav>
-
-</nav>
-<!-- END MENU -->
-<!-- END HEADER -->
-<div class="p-t-60">
-  <!-- START CONTACT SECTION -->
-  <section class="container container-fixed-lg p-t-65 p-b-100  sm-p-b-30 sm-m-b-30">
-    <div class="row">
-      <div class="col-md-8 col-sm-offset-2">
-        <h2>Registracijos forma</h2>
-        <div class="p-r-40 sm-p-r-0">
-
-          <div class="panel" id="contact-panel">
-            <p class="semi-bold no-margin">Jeigu turite klausimų, prasome susisiekti su mumis.</p>
-            <br>
-            <br>
-            <form [formGroup]="registerForm" (ngSubmit)="submitButtonClick($event)" role="form" autocomplete="off" class="m-t-15" id="contact-form" >
-              <div class="information-block">
-
-                <dt class="block-title p-b-15 text-black">Asmenine informacija <i class="pg-arrow_right m-l-10"></i>
-                </dt>
-
-                <div class="form-group form-group-default form-group-default-select2 required">
-                  <label>Mokslinis laipsnis</label>
-                  <select class="full-width" data-placeholder="Pasirinkite laipsnį" data-init-plugin="select2" formControlName="educationalDegree">
-                    <optgroup label="Laipsniai">
-                      <option value="DR">Daktaras</option>
-                      <option value="PR">Profesorius</option>
-                      <option value="KT">Kita</option>
-                    </optgroup>
-                  </select>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="form-group form-group-default required">
-                      <label>Vardas</label>
-                      <input type="text" name="firstName" class="form-control" formControlName="firstName" required>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group form-group-default required">
-                      <label>Pavardė</label>
-                      <input type="text" name="last-name" class="form-control" formControlName="lastName" required>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group form-group-default required">
-                  <label>Telefono numeris</label>
-                  <input type="tel" name="tel" placeholder="Įveskite savo telefono numerį.." class="form-control"
-                         formControlName="phoneNumber" required>
-                </div>
-                <div class="form-group form-group-default required">
-                  <label>El. paštas</label>
-                  <input type="email" name="email" placeholder="Įveskite savo paštą.." class="form-control" formControlName="email" required>
-                </div>
-                <div class="form-group form-group-default required">
-                  <label>Atstovaujama institucija</label>
-                  <input type="text" name="institutionRepresent" placeholder="Įveskite atstovaujamą instituciją.." class="form-control" required>
-                </div>
-
-              </div>
+      <!--BAIGIASI PAVARDE-->
+      <!--PRASIDEDA TELEFONO NUMERIS-->
+      <div class="form-item">
+        <label>Telefono numeris</label>
+        <input type="tel" name="userPhone" class="w50" placeholder="Įveskite savo telefono numerį.."
+               formControlName="userPhone" required>
+      </div>
+      <!--BAIGIASI TELEFONO NUMERIS-->
+      <!--PRASIDEDA TELEFONO NUMERIS-->
+      <div class="form-item">
+        <label>Elektroninis pastas</label>
+        <input type="email" name="userEmail" class="w50" placeholder="Įveskite savo paštą.."
+               formControlName="userEmail" required>
+      </div>
+      <!--BAIGIASI TELEFONO NUMERIS-->
+    </fieldset>
 
 
-              <div class="information-block">
-
-                <dt class="block-title p-b-15 text-black">Pranešimo informacija <i class="pg-arrow_right m-l-10"></i>
-                </dt>
-
-                <div class="form-group form-group-default required">
-                  <label>Pavadinimas</label>
-                  <input type="text" name="project-name" placeholder="Pranešimo pavadinimas.." class="form-control"
-                         formControlName="messageName" required>
-                </div>
-
-                <div class="form-group form-group-default required">
-                  <label>Pranešimo autoriai ir afiliacijos</label>
-                  <textarea name="authors" placeholder="Pranešimo autoriai ir afiliacijos.." style="height:100px"
-                            class="form-control" formControlName="messageAuthorsAndAffiliations" required></textarea>
-                </div>
-
-                <div class="form-group form-group-default required">
-                  <label>Pranešimo santrauka</label>
-                  <textarea name="short-info" placeholder="Pranešimo santrauka (400 žodžių).." style="height:100px"
-                            class="form-control" formControlName="messageSummary" required></textarea>
-                </div>
-
-              </div>
-
-              <div class="information-block">
-
-                <dt class="block-title p-b-15 text-black">Papildoma informacija <i class="pg-arrow_right m-l-10"></i>
-                </dt>
-                <!--PRASIDEDA VIESBUCIO PAPILDOMA INFORMACIJA-->
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="radio radio radio-danger text">
-                      <p>Ar reikalingas viešbučio kambarys?</p>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 text-right">
-                    <div class="radio radio radio-danger">
-                      <input type="radio" value="yes" name="hotel" id="hotelYes">
-                      <label for="hotelYes">Taip</label>
-                      <input type="radio" checked value="no" name="hotel" id="hotelNo">
-                      <label for="hotelNo">Ne</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row extraHotelInfo hidden" >
-                  <div class="col-sm-6">
-                    <div class="form-group form-group-default form-group-default-select2 required">
-                      <label>Norimas kambario tipas</label>
-                      <select class="full-width" data-placeholder="Pasirinkite kambario tipą"
-                              data-init-plugin="select2" >
-                        <optgroup label="Laipsniai">
-                          <option value="" selected></option>
-                          <option value="VIENAS">Vienvietis</option>
-                          <option value="DU">Dvivietis</option>
-                          <option value="KT">Kitas</option>
-                        </optgroup>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <!--BAIGIASI PAPILDOMAS VIESBUCIO INFORMACIJA-->
-                <!--PAPILDOMI ASMENYS-->
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="radio radio radio-danger text">
-                      <p>Ar bus lydinčių asmenų?</p>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 text-right">
-                    <div class="radio radio radio-danger">
-                      <input type="radio" value="yes" name="person" id="personYes">
-                      <label for="personYes">Taip</label>
-                      <input type="radio" checked="checked" value="no" name="person" id="personNo">
-                      <label for="personNo">Ne</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row extraPersonInfo hidden">
-                  <div class="col-sm-6">
-                    <label>Ar dalyvaus papildomuose renginiuose?</label>
-                    <div class="radio radio radio-danger">
-                      <input type="radio" value="yes" name="extraPerson" id="personExtraYes">
-                      <label for="personExtraYes">Taip</label>
-                      <input type="radio" checked value="no" name="extraPerson" id="personExtraNo">
-                      <label for="personExtraNo">Ne</label>
-                    </div>
-                  </div>
-                </div>
-                <!--PAPILDOMI ASMENYS BAIGIASI-->
-                <!--PAPIlDOMA ISANKSTINE SASKAITOS FAKTURA-->
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="radio radio radio-danger text">
-                      <p>Ar reikalinga išankstinė sąskaitos faktūra dalyvio mokesčiui apmokėti?</p>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 text-right">
-                    <div class="radio radio radio-danger">
-                      <input type="radio" value="yes" name="contract" id="contractYes">
-                      <label for="contractYes">Taip</label>
-                      <input type="radio" checked="checked" value="no" name="contract" id="contractNo">
-                      <label for="contractNo">Ne</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row extraInstitutionInfo hidden">
-                  <div class="col-sm-6">
-                    <div class="form-group form-group-default required">
-                      <label>Nurodykite instituciją</label>
-                      <input type="text" name="extraContract"
-                             placeholder="Įveskite institucijos informaciją.." class="form-control" >
-                    </div>
-                  </div>
-                </div>
-                <!--BAIGIAISI PAPILDOMA ISANKSTINES SASKAITOS FAKTURA-->
-              </div>
+    <fieldset formGroupName="project">
+      <legend>Pranesimo informacija</legend>
+      <!--PRASIDEDA PRANESIMO PAVADINIMAS-->
+      <div class="form-item">
+        <label>Pranesimo pavadinimas</label>
+        <input type="text" name="projectName" class="w50" formControlName="projectName" required>
+      </div>
+      <!--BAIGIASI PRANESIMO PAVADINIMAS-->
+      <!--PRASIDEDA PRANESIMO AUTORIAI-->
+      <div class="form-item">
+        <label>Pranesimo autoriai</label>
+        <textarea rows="6" name="projectAuthors" formControlName="projectAuthors" required></textarea>
+      </div>
+      <!--BAIGIASI PRANESIMO AUTORIAI-->
+      <!--PRASIDEDA PRANESIMO SANTRAUKA-->
+      <div class="form-item">
+        <label>Pranesimo santrauka</label>
+        <textarea rows="6" name="projectSummary" formControlName="projectSummary" required></textarea>
+      </div>
+      <!--BAIGIASI PRANESIMO SANTRAUKA-->
+    </fieldset>
 
 
-              <div class="sm-p-t-10 clearfix">
-                <p class="pull-left small hint-text m-t-5 font-arial">Registuodamasis aš sutinku, kad viršuje esanti
-                  informacija yra teisinga. </p>
-                <button type="submit" class="btn btn-danger font-montserrat all-caps fs-12 pull-right xs-pull-left">Registruotis
-                </button>
-              </div>
-              <div class="clearfix"></div>
-            </form>
+    <fieldset formGroupName="extra">
+      <legend>Papildoma informacija</legend>
+
+      <!--PRASIDEDA VIESBUCIO KLAUSIMAS-->
+      <div class="form-item">
+        <label>
+          Ar reikalingas viesbucio kambarys?
+          <input type="radio" name="extraHotel" formControlName="extraHotel" value="Taip">Taip
+          <input type="radio" name="extraHotel" formControlName="extraHotel" value="Ne" checked="checked">Ne
+        </label>
+      </div>
+      <div class="form-item">
+        <label>Viesbucio tipas</label>
+        <select formControlName="extraHotelSize">
+          <option value="" selected></option>
+          <option value="Vienvietis">Vienvietis</option>
+          <option value="Dvivietis">Dvivietis</option>
+          <option value="Kitas">Kitas</option>
+        </select>
+      </div>
+      <!--BAIGIASI PRANESIMO PAVADINIMAS-->
+
+      <!--PRASIDEDA PAPILDOMO ASMENS KLAUSIMAS-->
+      <div class="form-item">
+        <p>Ar bus lydinciu zmoniu?</p>
+          <div class="form-item form-checkboxes">
+            <label class="checkbox"><input type="radio" name="extraPerson" formControlName="extraPerson" value="Taip">Taip</label>
+            <label class="checkbox"><input type="radio" name="extraPerson" formControlName="extraPerson" value="Ne" checked="checked">Ne</label>
           </div>
-        </div>
       </div>
-    </div>
-  </section>
-  <!-- END CONTACT SECION -->
-  <!-- START FOOTER -->
-  <section class="p-b-30 p-t-40">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="m-t-10 ">
-            <ul class="no-style fs-11 no-padding font-arial">
-              <li class="inline no-padding"><a class=" text-master p-r-10 b-r b-grey" href="#">VU</a></li>
-              <li class="inline no-padding"><a class="hint-text text-master p-l-10 p-r-10 xs-no-padding xs-m-t-10"
-                                               href="#">DAMMS</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 text-right font-arial sm-text-left">
-          <p class="fs-11 m-t-10 muted">&copy; 2017 Vilniaus Universitetas. Visos teisės saugomos.</p>
-        </div>
+      <div class="form-item">
+        <label>
+          Ar dalyvaus papildomuose renginiuose?
+          <input type="radio" name="extraPersonAttendance" formControlName="extraPersonAttendance" value="Taip">Taip
+          <input type="radio" name="extraPersonAttendance" formControlName="extraPersonAttendance" value="Ne" checked="checked">Ne
+        </label>
       </div>
+      <!--BAIGIASI PAPILDOMO ASMENS KLAUSIMAS-->
+
+      <!--PRASIDEDA PAPILDOMAS INSTITUCIJOS KLAUSIMAS-->
+      <div class="form-item" >
+        <label>
+          Ar reikalinga išankstinė sąskaitos faktūra dalyvio mokesčiui apmokėti?
+          <input type="radio" name="extraPayForPerson" formControlName="extraPayForPerson" value="Taip">Taip
+          <input type="radio" name="extraPayForPerson" formControlName="extraPayForPerson" value="Ne" checked="checked">Ne
+        </label>
+      </div>
+      <div class="form-item">
+        <label>Institucijos pavadinimas</label>
+        <input type="text" name="extraPayForPersonInstitution" class="w50" formControlName="extraPayForPersonInstitution">
+      </div>
+      <!--BAIGIASI PAPILDOMAS INSTITUCIJOS KLAUSIMAS-->
+    </fieldset>
+
+    <!--REGISTRACIJOS MYGTUKAS-->
+    <div class="form-item form-buttons">
+      <button>Registruotis</button>
+      <button class="button secondary outline">Cancel</button>
     </div>
-  </section>
-  <!-- END FOOTER -->
+
+  </form>
 </div>
+
+
