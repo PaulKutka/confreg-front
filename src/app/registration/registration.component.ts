@@ -28,6 +28,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   submitButtonClick(event) {
+    console.log(this.registerForm);
     this.participantService.insertParticipant(this.registerForm.value);
   }
 

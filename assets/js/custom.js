@@ -7,17 +7,6 @@
 
 $(document).ready(function() {
 
-    //Intialize Slider
-    var slider = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        parallax: true,
-        speed: 1000
-    });
-
-
   // institution
   $('input[name="contract"]').on('change', function (event) {
     var radioButton = $(event.currentTarget),
@@ -44,7 +33,12 @@ $(document).ready(function() {
     $('.extraPersonInfo').toggleClass('hidden', !hasPerson);
   }).change();
 
-
+  var input = document.querySelectorAll('input:not([type="checkbox"])');
+  for(var i = 0 ; i < input.length; i++) {
+    if(input[i].length == 0) {
+      input[i].value = "";
+    }
+  }
 
 
 });
