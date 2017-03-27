@@ -16,26 +16,21 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-      user: this.fb.group({
-        userDegree: ['', Validators.required],
-        userName: ['', Validators.required],
-        userSurname: ['', Validators.required],
-        userPhone: ['', Validators.required],
-        userEmail: ['', Validators.required],
-      }),
-      project: this.fb.group({
-        projectName: ['', Validators.required],
-        projectAuthors: ['', Validators.required],
-        projectSummary: ['', Validators.required],
-      }),
-      extra: this.fb.group({
-        extraHotel: ['', Validators.required],
-        extraHotelSize: ['', Validators.required],
-        extraPerson: ['', Validators.required],
-        extraPersonAttendance: ['', Validators.required],
-        extraPayForPerson: ['', Validators.required],
-        extraPayForPersonInstitution: ['', Validators.required],
-      }),
+        educationalDegree: ['', Validators.required],
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        phoneNumber: ['', Validators.required],
+        email: ['', Validators.required],
+        institution: ['', Validators.required],
+        messageName: ['', Validators.required],
+        messageAuthorsAndAffiliations: ['', Validators.required],
+        messageSummary: ['', Validators.required], 
+        needsRoom: ['', Validators.required],
+        roomType: ['', Validators.required],
+        hasEscort: ['', Validators.required],
+        escortWillParticipateInEvents: ['', Validators.required],
+        needsBill: ['', Validators.required],
+        billInstitution: ['', Validators.required],
     });
   }
 

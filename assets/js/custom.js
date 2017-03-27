@@ -1,7 +1,7 @@
 
 
 // institution
-$('input[name="extraPayForPerson"]').on('change', function (event) {
+$('input[name="needsBill"]').on('change', function (event) {
   var radioButton = $(event.currentTarget),
 
     hasInstitution = radioButton.val() === 'Taip' && radioButton.prop('checked');
@@ -10,7 +10,7 @@ $('input[name="extraPayForPerson"]').on('change', function (event) {
 }).change();
 
 // institution
-$('input[name="extraHotel"]').on('change', function (event) {
+$('input[name="needsRoom"]').on('change', function (event) {
   var radioButton = $(event.currentTarget),
 
     hasHotel = radioButton.val() === 'Taip' && radioButton.prop('checked');
@@ -19,7 +19,7 @@ $('input[name="extraHotel"]').on('change', function (event) {
 
 
 // institution
-$('input[name="extraPerson"]').on('change', function (event) {
+$('input[name="hasEscort"]').on('change', function (event) {
   var radioButton = $(event.currentTarget),
 
     hasPerson = radioButton.val() === 'Taip' && radioButton.prop('checked');

@@ -1,11 +1,11 @@
 <div id="kube-component" class="content">
   <form novalidate class="form" [formGroup]="registerForm" (ngSubmit)="submitButtonClick($event)">
-    <fieldset formGroupName="user">
+    <fieldset>
       <legend>Asmenine informacija</legend>
       <!--PRASIDEDA LAIPSNIS-->
       <div class="form-item">
         <label>Mokslinis laipsnis</label>
-        <select formControlName="userDegree" class="w50">
+        <select formControlName="educationalDegree" class="w50">
           <option disabled selected value>---</option>
           <option value="Daktaras">Daktaras</option>
           <option value="Profesorius">Profesorius</option>
@@ -16,48 +16,55 @@
       <!--PRASIDEDA VARDAS-->
       <div class="form-item">
         <label>Vardas</label>
-        <input type="text" name="userName" class="w50" placeholder="Įveskite savo vardą.."
-               formControlName="userName" required>
+        <input type="text" name="firstName" class="w50" placeholder="Įveskite savo vardą.."
+               formControlName="firstName" required>
       </div>
       <!--BAIGIASI VARDAS
       <!--PRASIDEDA PAVARDE-->
       <div class="form-item">
         <label>Pavardė</label>
-        <input type="text" name="userSurname" class="w50" placeholder="Įveskite savo pavardę.."
-               formControlName="userSurname" required>
+        <input type="text" name="lastName" class="w50" placeholder="Įveskite savo pavardę.."
+               formControlName="lastName" required>
       </div>
       <!--BAIGIASI PAVARDE-->
       <!--PRASIDEDA TELEFONO NUMERIS-->
       <div class="form-item">
         <label>Telefono numeris</label>
-        <input type="tel" name="userPhone" class="w50" placeholder="Įveskite savo telefono numerį.."
-               formControlName="userPhone" required>
+        <input type="tel" name="phoneNumber" class="w50" placeholder="Įveskite savo telefono numerį.."
+               formControlName="phoneNumber" required>
       </div>
       <!--BAIGIASI TELEFONO NUMERIS-->
       <!--PRASIDEDA TELEFONO NUMERIS-->
       <div class="form-item">
         <label>Elektroninis pastas</label>
-        <input type="email" name="userEmail" class="w50" placeholder="Įveskite savo elektroninį paštą.."
-               formControlName="userEmail" required>
+        <input type="email" name="email" class="w50" placeholder="Įveskite savo elektroninį paštą.."
+               formControlName="email" required>
       </div>
       <!--BAIGIASI TELEFONO NUMERIS-->
+      <!--PRASIDEDA INSTITUCIJA-->
+      <div class="form-item">
+        <label>Atstovaujama institucija</label>
+        <input type="text" name="institution" class="w50" placeholder="Įveskite savo elektroninį paštą.."
+               formControlName="institution" required>
+      </div>
+      <!--BAIGIASI INSTITUCIJA-->
     </fieldset>
 
 
-    <fieldset formGroupName="project">
+    <fieldset>
       <legend>Pranesimo informacija</legend>
       <!--PRASIDEDA PRANESIMO PAVADINIMAS-->
       <div class="form-item">
         <label>Pranesimo pavadinimas</label>
-        <input type="text" name="projectName" class="w50" placeholder="Įveskite savo projekto pavadinimą.."
-               formControlName="projectName" required>
+        <input type="text" name="messageName" class="w50" placeholder="Įveskite savo projekto pavadinimą.."
+               formControlName="messageName" required>
       </div>
       <!--BAIGIASI PRANESIMO PAVADINIMAS-->
       <!--PRASIDEDA PRANESIMO AUTORIAI-->
       <div class="form-item">
         <label>Pranesimo autoriai</label>
-        <textarea rows="6" name="projectAuthors" placeholder="Įveskite savo projekto autorius.."
-                  formControlName="projectAuthors" required></textarea>
+        <textarea rows="6" name="messageAuthorsAndAffiliations" placeholder="Įveskite savo projekto autorius.."
+                  formControlName="messageAuthorsAndAffiliations" required></textarea>
       </div>
       <!--BAIGIASI PRANESIMO AUTORIAI-->
       <!--PRASIDEDA PRANESIMO SANTRAUKA-->
@@ -65,29 +72,29 @@
         <label>Pranesimo santrauka
           <span class="desc">Maksimalus raidziu skaicius: 400</span>
         </label>
-        <textarea rows="6" name="projectSummary" placeholder="Įveskite savo projekto santrauka.."
-                  formControlName="projectSummary" required></textarea>
+        <textarea rows="6" name="messageSummary" placeholder="Įveskite savo projekto santrauka.."
+                  formControlName="messageSummary" required></textarea>
 
       </div>
       <!--BAIGIASI PRANESIMO SANTRAUKA-->
     </fieldset>
 
 
-    <fieldset formGroupName="extra">
+    <fieldset>
       <legend>Papildoma informacija</legend>
 
       <!--PRASIDEDA VIESBUCIO KLAUSIMAS-->
       <div class="form-item">
         <p>Ar reikalingas viesbucio kambarys?</p>
         <div class="form-item form-checkboxes">
-          <label class="checkbox"><input type="radio" name="extraHotel" formControlName="extraHotel" value="Taip">Taip</label>
-          <label class="checkbox"><input type="radio" name="extraHotel" formControlName="extraHotel" value="Ne"
+          <label class="checkbox"><input type="radio" name="needsRoom" formControlName="needsRoom" value="Taip">Taip</label>
+          <label class="checkbox"><input type="radio" name="needsRoom" formControlName="needsRoom" value="Ne"
                                          checked="checked">Ne</label>
         </div>
       </div>
       <div class="form-item extraHotel hidden">
         <label>Viesbucio tipas</label>
-        <select formControlName="extraHotelSize" class="w50">
+        <select formControlName="roomType" class="w50">
           <option value="" selected></option>
           <option value="Vienvietis">Vienvietis</option>
           <option value="Dvivietis">Dvivietis</option>
@@ -100,14 +107,14 @@
       <div class="form-item">
         <p>Ar bus lydinciu zmoniu?</p>
         <div class="form-item form-checkboxes">
-          <label class="checkbox"><input type="radio" name="extraPerson" formControlName="extraPerson" value="Taip">Taip</label>
-          <label class="checkbox"><input type="radio" name="extraPerson" formControlName="extraPerson" value="Ne"
+          <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Taip">Taip</label>
+          <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Ne"
                                          checked="checked">Ne</label>
         </div>
       </div>
       <div class="form-item extraPerson hidden">
         <label>Ar dalyvaus papildomuose renginiuose?</label>
-        <select formControlName="extraPersonAttendance" class="w50">
+        <select formControlName="escortWillParticipateInEvents" class="w50">
           <option value selected disabled>---</option>
           <option value="Taip">Taip</option>
           <option value="Ne">Ne</option>
@@ -119,16 +126,16 @@
       <div class="form-item ">
         <p>Ar reikalinga išankstinė sąskaitos faktūra dalyvio mokesčiui apmokėti?</p>
         <div class="form-item form-checkboxes">
-          <label class="checkbox"><input type="radio" name="extraPayForPerson" formControlName="extraPayForPerson"
+          <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
                                          value="Taip">Taip</label>
-          <label class="checkbox"><input type="radio" name="extraPayForPerson" formControlName="extraPayForPerson"
+          <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
                                          value="Ne" checked="checked">Ne</label>
         </div>
       </div>
       <div class="form-item extraPayForPerson hidden">
         <label>Institucijos pavadinimas</label>
-        <input type="text" name="extraPayForPersonInstitution" class="w50"
-               formControlName="extraPayForPersonInstitution">
+        <input type="text" name="billInstitution" class="w50"
+               formControlName="billInstitution">
       </div>
       <!--BAIGIASI
       </div> PAPILDOMAS INSTITUCIJOS KLAUSIMAS-->
