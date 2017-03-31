@@ -1,5 +1,5 @@
 <div id="kube-component" class="content">
-  <form novalidate class="form" [formGroup]="registerForm" (ngSubmit)="submitButtonClick($event)">
+  <form class="form" [formGroup]="registerForm" (ngSubmit)="submitButtonClick($event)">
     <fieldset>
       <legend>Asmenine informacija</legend>
       <!--PRASIDEDA LAIPSNIS-->
@@ -44,7 +44,7 @@
       <!--PRASIDEDA INSTITUCIJA-->
       <div class="form-item">
         <label>Atstovaujama institucija</label>
-        <input type="text" name="institution" class="w50" placeholder="Įveskite savo elektroninį paštą.."
+        <input type="text" name="institution" class="w50" placeholder="Įveskite atstovaujamą instituciją.."
                formControlName="institution" required>
       </div>
       <!--BAIGIASI INSTITUCIJA-->

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ParticipantService } from 'services/participant.service';
+import { CustomValidators } from 'ng2-validation';
 
 @Component({
   selector: 'app-registration',
@@ -19,12 +20,12 @@ export class RegistrationComponent implements OnInit {
         educationalDegree: ['', Validators.required],
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
-        phoneNumber: ['', Validators.required],
-        email: ['', Validators.required],
+        phoneNumber: ['', Validators.compose([Validators.required, CustomValidators.number])],
+        email: ['', Validators.compose([Validators.required, CustomValidators.email])],
         institution: ['', Validators.required],
         messageName: ['', Validators.required],
         messageAuthorsAndAffiliations: ['', Validators.required],
-        messageSummary: ['', Validators.required], 
+        messageSummary: ['', Validators.required],
         needsRoom: ['', Validators.required],
         roomType: ['', Validators.required],
         hasEscort: ['', Validators.required],
