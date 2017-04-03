@@ -6,7 +6,7 @@
       <div class="form-item">
         <label>Mokslinis laipsnis</label>
         <select formControlName="educationalDegree" class="w50">
-          <option value="Daktaras" >Daktaras</option>
+          <option value="Daktaras" [selected]="true" >Daktaras</option>
           <option value="Profesorius">Profesorius</option>
           <option value="Be laipsnio">Be laipsnio</option>
         </select>
@@ -87,11 +87,13 @@
       <!--BAIGIASI PRANESIMO AUTORIAI-->
       <!--PRASIDEDA PRANESIMO SANTRAUKA-->
       <div class="form-item">
-        <label>Pranesimo santrauka<span class="hidden" [ngClass]="{'error display-inline': registerForm.get('messageSummary').hasError('required')
+        <label>Pranesimo santrauka<span class="hidden" [ngClass]="{'error display-inline': (registerForm.get('messageSummary').hasError('required') ||
+        registerForm.get('messageSummary').hasError('lengthOver400'))
         && registerForm.get('messageSummary').touched}">
           Užpildykite teisingai lauką </span></label>
         <textarea rows="6" name="messageSummary" placeholder="Įveskite savo projekto santrauka.."
-                  formControlName="messageSummary" [ngClass]="{error: registerForm.get('messageSummary').hasError('required')
+                  formControlName="messageSummary" [ngClass]="{error: ( registerForm.get('messageSummary').hasError('required') ||
+                  registerForm.get('messageSummary').hasError('lengthOver400'))
                   && registerForm.get('messageSummary').touched}" required></textarea>
 
       </div>
@@ -114,8 +116,7 @@
       <div class="form-item extraHotel hidden">
         <label>Viesbucio tipas</label>
         <select formControlName="roomType" class="w50">
-          <option value="" selected></option>
-          <option value="Vienvietis">Vienvietis</option>
+          <option value="Vienvietis" [selected]="true">Vienvietis</option>
           <option value="Dvivietis">Dvivietis</option>
           <option value="Kitas">Kitas</option>
         </select>
@@ -135,8 +136,7 @@
       <div class="form-item extraPerson hidden">
         <label>Ar dalyvaus papildomuose renginiuose?</label>
         <select formControlName="escortWillParticipateInEvents" class="w50">
-          <option value selected disabled>---</option>
-          <option value="Taip">Taip</option>
+          <option value="Taip" [selected]="true">Taip</option>
           <option value="Ne">Ne</option>
         </select>
       </div>
