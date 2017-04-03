@@ -90,7 +90,7 @@
         <label>Pranesimo santrauka<span class="hidden" [ngClass]="{'error display-inline': (registerForm.get('messageSummary').hasError('required') ||
         registerForm.get('messageSummary').hasError('lengthOver400'))
         && registerForm.get('messageSummary').touched}">
-          Užpildykite teisingai lauką </span></label>
+          Užpildykite teisingai lauką - min. 400 zodziu </span></label>
         <textarea rows="6" name="messageSummary" placeholder="Įveskite savo projekto santrauka.."
                   formControlName="messageSummary" [ngClass]="{error: ( registerForm.get('messageSummary').hasError('required') ||
                   registerForm.get('messageSummary').hasError('lengthOver400'))
@@ -163,11 +163,10 @@
 
     <!--REGISTRACIJOS MYGTUKAS-->
     <div class="form-item form-buttons">
-      <button type="submit" [disabled]="registerForm.invalid">Registruotis</button>
+      <button type="submit"
+      >Registruotis</button>
       <button class="button secondary outline">Cancel</button>
     </div>
 
   </form>
 </div>
-
-
