@@ -17,7 +17,7 @@ $('input[name="needsRoom"]').on('change', function (event) {
 
 // institution
 $('input[name="hasEscort"]').on('change', function (event) {
-  var radioButton = $(event.currentTarget), 
+  var radioButton = $(event.currentTarget),
     hasPerson = radioButton.val() === 'Taip' && radioButton.prop('checked');
   $('.extraPerson').toggleClass('hidden', !hasPerson);
 }).change();

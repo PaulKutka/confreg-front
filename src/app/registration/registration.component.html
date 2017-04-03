@@ -15,37 +15,51 @@
       <!--BAIGIASI LAIPSNIS-->
       <!--PRASIDEDA VARDAS-->
       <div class="form-item">
-        <label>Vardas</label>
+        <label>Vardas<span class="hidden" [ngClass]="{'error display-inline': registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched}">
+          Užpildykite teisingai lauką </span></label>
         <input type="text" name="firstName" class="w50" placeholder="Įveskite savo vardą.."
-               formControlName="firstName" required>
+               formControlName="firstName" [ngClass]="{error: registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched}"  required>
       </div>
       <!--BAIGIASI VARDAS
       <!--PRASIDEDA PAVARDE-->
       <div class="form-item">
-        <label>Pavardė</label>
+        <label>Pavardė<span class="hidden" [ngClass]="{'error display-inline': registerForm.get('lastName').hasError('required') && registerForm.get('lastName').touched}">
+          Užpildykite teisingai lauką </span></label>
         <input type="text" name="lastName" class="w50" placeholder="Įveskite savo pavardę.."
-               formControlName="lastName" required>
+               formControlName="lastName" [ngClass]="{error: registerForm.get('lastName').hasError('required') && registerForm.get('lastName').touched}" required>
       </div>
       <!--BAIGIASI PAVARDE-->
       <!--PRASIDEDA TELEFONO NUMERIS-->
       <div class="form-item">
-        <label>Telefono numeris</label>
+        <label>Telefono numeris<span class="hidden" [ngClass]="{'error display-inline': (registerForm.get('phoneNumber').hasError('required') ||
+        registerForm.get('phoneNumber').hasError('number'))
+        && registerForm.get('phoneNumber').touched}">
+          Užpildykite teisingai lauką </span></label>
         <input type="tel" name="phoneNumber" class="w50" placeholder="Įveskite savo telefono numerį.."
-               formControlName="phoneNumber" required>
+               formControlName="phoneNumber" [ngClass]="{error: (registerForm.get('phoneNumber').hasError('required') ||
+               registerForm.get('phoneNumber').hasError('number'))
+               && registerForm.get('phoneNumber').touched}" required>
       </div>
       <!--BAIGIASI TELEFONO NUMERIS-->
       <!--PRASIDEDA TELEFONO NUMERIS-->
       <div class="form-item">
-        <label>Elektroninis pastas</label>
+        <label>Elektroninis pastas<span class="hidden" [ngClass]="{'error display-inline': (registerForm.get('email').hasError('required') ||
+        registerForm.get('email').hasError('email'))
+        && registerForm.get('email').touched}">
+          Užpildykite teisingai lauką </span></label>
         <input type="email" name="email" class="w50" placeholder="Įveskite savo elektroninį paštą.."
-               formControlName="email" required>
+               formControlName="email" [ngClass]="{error: (registerForm.get('email').hasError('required') ||
+               registerForm.get('email').hasError('email'))
+               && registerForm.get('email').touched}" required>
       </div>
       <!--BAIGIASI TELEFONO NUMERIS-->
       <!--PRASIDEDA INSTITUCIJA-->
       <div class="form-item">
-        <label>Atstovaujama institucija</label>
+        <label>Atstovaujama institucija<span class="hidden" [ngClass]="{'error display-inline': registerForm.get('institution').hasError('required')
+        && registerForm.get('institution').touched}">
+          Užpildykite teisingai lauką </span></label>
         <input type="text" name="institution" class="w50" placeholder="Įveskite atstovaujamą instituciją.."
-               formControlName="institution" required>
+               formControlName="institution" [ngClass]="{error: registerForm.get('institution').hasError('required') && registerForm.get('institution').touched}" required>
       </div>
       <!--BAIGIASI INSTITUCIJA-->
     </fieldset>
@@ -143,7 +157,7 @@
 
     <!--REGISTRACIJOS MYGTUKAS-->
     <div class="form-item form-buttons">
-      <button>Registruotis</button>
+      <button type="submit" [disabled]="registerForm.invalid">Registruotis</button>
       <button class="button secondary outline">Cancel</button>
     </div>
 
