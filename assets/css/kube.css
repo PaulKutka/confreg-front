@@ -830,7 +830,8 @@ textarea {
   height: auto;
   padding: 8px 12px;
   line-height: 24px;
-  vertical-align: top; }
+  vertical-align: top;
+  background: transparent}
 
 input[type="file"] {
   width: auto;
