@@ -14,6 +14,7 @@ export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
   submitAttempt = false;
+  submitAccept = false;
 
   constructor(private fb: FormBuilder, private participantService: ParticipantService) {
   }
@@ -43,8 +44,11 @@ export class RegistrationComponent implements OnInit {
   }
 
   submitButtonClick(event) {
-    console.log(this.registerForm);
-    this.participantService.insertParticipant(this.registerForm.value);
+    if(this.registerForm.valid && this.submitAttempt) {
+      console.log(this.registerForm);
+      this.participantService.insertParticipant(this.registerForm.value);
+      this.submitAccept = true;
+    }
   }
-
+//C4.5
 }
