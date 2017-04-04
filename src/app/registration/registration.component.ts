@@ -13,6 +13,7 @@ import {UsernameValidator} from '../validators/validationEmail'
 export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
+  submitAttempt = false;
 
   constructor(private fb: FormBuilder, private participantService: ParticipantService) {
   }
@@ -37,10 +38,9 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  onUploadTypeChange(e) {
-    console.log(e.target.value);
+  initSubmit(){
+    this.submitAttempt = true;
   }
-
 
   submitButtonClick(event) {
     console.log(this.registerForm);
