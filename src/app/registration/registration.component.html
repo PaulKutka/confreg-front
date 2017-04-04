@@ -6,8 +6,7 @@
       <div class="form-item">
         <label>Mokslinis laipsnis</label>
         <select formControlName="educationalDegree" class="w50">
-          <option disabled selected value>---</option>
-          <option value="Daktaras">Daktaras</option>
+          <option value="Daktaras" [selected]="true" >Daktaras</option>
           <option value="Profesorius">Profesorius</option>
           <option value="Be laipsnio">Be laipsnio</option>
         </select>
@@ -15,37 +14,68 @@
       <!--BAIGIASI LAIPSNIS-->
       <!--PRASIDEDA VARDAS-->
       <div class="form-item">
-        <label>Vardas</label>
+        <label>Vardas<span class="hidden" [ngClass]="{'error display-inline':
+         (registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched)
+         || ( submitAttempt && !registerForm.get('firstName').touched)}">
+          Užpildykite teisingai lauką </span></label>
         <input type="text" name="firstName" class="w50" placeholder="Įveskite savo vardą.."
-               formControlName="firstName" required>
+               formControlName="firstName" [ngClass]="{error:
+               (registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched)
+               || ( submitAttempt && !registerForm.get('firstName').touched)}"  required>
       </div>
       <!--BAIGIASI VARDAS
       <!--PRASIDEDA PAVARDE-->
       <div class="form-item">
-        <label>Pavardė</label>
+        <label>Pavardė<span class="hidden" [ngClass]="{'error display-inline':
+        (registerForm.get('lastName').hasError('required') && registerForm.get('lastName').touched)
+        ||  (submitAttempt && !registerForm.get('lastName').touched) }">
+          Užpildykite teisingai lauką </span></label>
         <input type="text" name="lastName" class="w50" placeholder="Įveskite savo pavardę.."
-               formControlName="lastName" required>
+               formControlName="lastName" [ngClass]="{error:
+               (registerForm.get('lastName').hasError('required') && registerForm.get('lastName').touched)
+               ||  (submitAttempt && !registerForm.get('lastName').touched) }" required>
       </div>
       <!--BAIGIASI PAVARDE-->
       <!--PRASIDEDA TELEFONO NUMERIS-->
       <div class="form-item">
-        <label>Telefono numeris</label>
+        <label>Telefono numeris<span class="hidden" [ngClass]="{'error display-inline':
+        (registerForm.get('phoneNumber').hasError('required') ||
+        registerForm.get('phoneNumber').hasError('number'))
+        && registerForm.get('phoneNumber').touched ||  (submitAttempt && !registerForm.get('phoneNumber').touched ) }">
+          Užpildykite teisingai lauką </span></label>
         <input type="tel" name="phoneNumber" class="w50" placeholder="Įveskite savo telefono numerį.."
-               formControlName="phoneNumber" required>
+               formControlName="phoneNumber" [ngClass]="{error: (registerForm.get('phoneNumber').hasError('required') ||
+               registerForm.get('phoneNumber').hasError('number'))
+               && registerForm.get('phoneNumber').touched
+              ||  (submitAttempt && ! registerForm.get('phoneNumber').touched ) }" required>
       </div>
       <!--BAIGIASI TELEFONO NUMERIS-->
       <!--PRASIDEDA TELEFONO NUMERIS-->
       <div class="form-item">
-        <label>Elektroninis pastas</label>
+        <label>Elektroninis pastas<span class="hidden" [ngClass]="{'error display-inline':
+         (registerForm.get('email').hasError('required') ||
+        registerForm.get('email').hasError('email'))
+        && registerForm.get('email').touched ||
+          (submitAttempt && !registerForm.get('email').touched ) }">
+          Užpildykite teisingai lauką </span></label>
         <input type="email" name="email" class="w50" placeholder="Įveskite savo elektroninį paštą.."
-               formControlName="email" required>
+               formControlName="email" [ngClass]="{error: (registerForm.get('email').hasError('required') ||
+               registerForm.get('email').hasError('email'))
+               && registerForm.get('email').touched ||
+               (submitAttempt && !registerForm.get('email').touched ) }" required>
       </div>
       <!--BAIGIASI TELEFONO NUMERIS-->
       <!--PRASIDEDA INSTITUCIJA-->
       <div class="form-item">
-        <label>Atstovaujama institucija</label>
-        <input type="text" name="institution" class="w50" placeholder="Įveskite savo elektroninį paštą.."
-               formControlName="institution" required>
+        <label>Atstovaujama institucija<span class="hidden" [ngClass]="{'error display-inline':
+         (registerForm.get('institution').hasError('required')
+        && registerForm.get('institution').touched) ||
+        ( submitAttempt && !registerForm.get('institution').touched) }">
+          Užpildykite teisingai lauką </span></label>
+        <input type="text" name="institution" class="w50" placeholder="Įveskite atstovaujamą instituciją.."
+               formControlName="institution" [ngClass]="{error:
+               (registerForm.get('institution').hasError('required') && registerForm.get('institution').touched)
+                ||  ( submitAttempt && !registerForm.get('institution').touched) }" required>
       </div>
       <!--BAIGIASI INSTITUCIJA-->
     </fieldset>
@@ -55,25 +85,44 @@
       <legend>Pranesimo informacija</legend>
       <!--PRASIDEDA PRANESIMO PAVADINIMAS-->
       <div class="form-item">
-        <label>Pranesimo pavadinimas</label>
+        <label>Pranesimo pavadinimas<span class="hidden" [ngClass]="{'error display-inline':
+        (registerForm.get('messageName').hasError('required')
+        && registerForm.get('messageName').touched) ||
+         ( submitAttempt && !registerForm.get('messageName').touched) }">
+          Užpildykite teisingai lauką </span></label>
         <input type="text" name="messageName" class="w50" placeholder="Įveskite savo projekto pavadinimą.."
-               formControlName="messageName" required>
+               formControlName="messageName" [ngClass]="{error:
+               (registerForm.get('messageName').hasError('required') && registerForm.get('messageName').touched)
+               ||  ( submitAttempt && !registerForm.get('messageName').touched)  }" required>
       </div>
       <!--BAIGIASI PRANESIMO PAVADINIMAS-->
       <!--PRASIDEDA PRANESIMO AUTORIAI-->
       <div class="form-item">
-        <label>Pranesimo autoriai</label>
-        <textarea rows="6" name="messageAuthorsAndAffiliations" placeholder="Įveskite savo projekto autorius.."
-                  formControlName="messageAuthorsAndAffiliations" required></textarea>
+        <label>Pranesimo autoriai<span class="hidden" [ngClass]="{'error display-inline':
+        (registerForm.get('messageAuthorsAndAffiliations').hasError('required')
+        && registerForm.get('messageAuthorsAndAffiliations').touched) ||
+         ( submitAttempt && !registerForm.get('messageAuthorsAndAffiliations').touched) }">
+          Užpildykite teisingai lauką </span></label>
+        <textarea  rows="6" name="messageAuthorsAndAffiliations" placeholder="Įveskite savo projekto autorius.."
+                  formControlName="messageAuthorsAndAffiliations" [ngClass]="{error:
+                   (registerForm.get('messageAuthorsAndAffiliations').hasError('required')
+                  && registerForm.get('messageAuthorsAndAffiliations').touched) ||
+                    ( submitAttempt && !registerForm.get('messageAuthorsAndAffiliations').touched) }" required></textarea>
       </div>
       <!--BAIGIASI PRANESIMO AUTORIAI-->
       <!--PRASIDEDA PRANESIMO SANTRAUKA-->
       <div class="form-item">
-        <label>Pranesimo santrauka
-          <span class="desc">Maksimalus raidziu skaicius: 400</span>
-        </label>
+        <label>Pranesimo santrauka<span class="hidden" [ngClass]="{'error display-inline': (
+        registerForm.get('messageSummary').hasError('required') ||
+        registerForm.get('messageSummary').hasError('lengthOver400'))
+        && registerForm.get('messageSummary').touched || (
+         submitAttempt && !registerForm.get('messageSummary').touched) }">
+          Užpildykite teisingai lauką - min. 400 zodziu </span></label>
         <textarea rows="6" name="messageSummary" placeholder="Įveskite savo projekto santrauka.."
-                  formControlName="messageSummary" required></textarea>
+                  formControlName="messageSummary" [ngClass]="{error: ( registerForm.get('messageSummary').hasError('required') ||
+                  registerForm.get('messageSummary').hasError('lengthOver400'))
+                  && registerForm.get('messageSummary').touched ||
+                   (submitAttempt && !registerForm.get('messageSummary').touched ) }" required></textarea>
 
       </div>
       <!--BAIGIASI PRANESIMO SANTRAUKA-->
@@ -88,15 +137,14 @@
         <p>Ar reikalingas viesbucio kambarys?</p>
         <div class="form-item form-checkboxes">
           <label class="checkbox"><input type="radio" name="needsRoom" formControlName="needsRoom" value="Taip">Taip</label>
-          <label class="checkbox"><input type="radio" name="needsRoom" formControlName="needsRoom" value="Ne"
-                                         checked="checked">Ne</label>
+          <label class="checkbox"><input  type="radio" name="needsRoom" formControlName="needsRoom" value="Ne"
+                                         [checked]="true">Ne</label>
         </div>
       </div>
       <div class="form-item extraHotel hidden">
         <label>Viesbucio tipas</label>
         <select formControlName="roomType" class="w50">
-          <option value="" selected></option>
-          <option value="Vienvietis">Vienvietis</option>
+          <option value="Vienvietis" [selected]="true">Vienvietis</option>
           <option value="Dvivietis">Dvivietis</option>
           <option value="Kitas">Kitas</option>
         </select>
@@ -107,16 +155,16 @@
       <div class="form-item">
         <p>Ar bus lydinciu zmoniu?</p>
         <div class="form-item form-checkboxes">
+
           <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Taip">Taip</label>
           <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Ne"
-                                         checked="checked">Ne</label>
+                                         [checked]="true">Ne</label>
         </div>
       </div>
       <div class="form-item extraPerson hidden">
         <label>Ar dalyvaus papildomuose renginiuose?</label>
         <select formControlName="escortWillParticipateInEvents" class="w50">
-          <option value selected disabled>---</option>
-          <option value="Taip">Taip</option>
+          <option value="Taip" [selected]="true">Taip</option>
           <option value="Ne">Ne</option>
         </select>
       </div>
@@ -129,7 +177,7 @@
           <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
                                          value="Taip">Taip</label>
           <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
-                                         value="Ne" checked="checked">Ne</label>
+                                         value="Ne" [checked]="true">Ne</label>
         </div>
       </div>
       <div class="form-item extraPayForPerson hidden">
@@ -143,11 +191,16 @@
 
     <!--REGISTRACIJOS MYGTUKAS-->
     <div class="form-item form-buttons">
-      <button>Registruotis</button>
+      <div *ngIf="registerForm.invalid && submitAttempt" class="message error" data-component="message">
+        Suveskite duomenis teisingai!  </div>
+      <div *ngIf="registerForm.valid && submitAttempt && submitAccept" class="message success" data-component="message">
+        Sveikiname. Sėkmingai užsiregistravote! </div>
+      <button type="submit" (click)="initSubmit()"
+      >Registruotis</button>
       <button class="button secondary outline">Cancel</button>
     </div>
 
   </form>
 </div>
 
-
+<!--[disabled]="registerForm.invalid"-->
