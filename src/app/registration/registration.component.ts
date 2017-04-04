@@ -47,7 +47,7 @@ export class RegistrationComponent implements OnInit {
     if(this.registerForm.valid && this.submitAttempt) {
       console.log(this.registerForm);
       this.participantService.insertParticipant(this.registerForm.value);
-      this.submitAccept = true;
+      this.submitAccept = true; 
     }
   }
 //C4.5
