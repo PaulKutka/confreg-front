@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ParticipantService} from 'services/participant.service';
 import {CustomValidators} from 'ng2-validation';
-import {UsernameValidator} from '../validationEmail'
+import {UsernameValidator} from '../validators/validationEmail'
 
 @Component({
   selector: 'app-registration',
@@ -19,7 +19,7 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-      educationalDegree: ['', Validators.required],
+      educationalDegree: ['Daktaras', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       phoneNumber: ['', Validators.compose([Validators.required, CustomValidators.number])],
@@ -28,14 +28,19 @@ export class RegistrationComponent implements OnInit {
       messageName: ['', Validators.required],
       messageAuthorsAndAffiliations: ['', Validators.required],
       messageSummary: ['', Validators.compose([Validators.required, UsernameValidator.lengthOver400])],
-      needsRoom: ['', Validators.required],
-      roomType: ['', Validators.required],
-      hasEscort: ['', Validators.required],
-      escortWillParticipateInEvents: ['', Validators.required],
-      needsBill: ['', Validators.required],
-      billInstitution: ['', Validators.required],
+      needsRoom: ['Ne', Validators.required],
+      roomType: [''],
+      hasEscort: ['Ne', Validators.required],
+      escortWillParticipateInEvents: [''],
+      needsBill: ['Ne', Validators.required],
+      billInstitution: [''],
     });
   }
+
+  onUploadTypeChange(e) {
+    console.log(e.target.value);
+  }
+
 
   submitButtonClick(event) {
     console.log(this.registerForm);

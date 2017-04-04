@@ -1,5 +1,5 @@
 <div id="kube-component" class="content">
-  <form class="form" [formGroup]="registerForm" (ngSubmit)="submitButtonClick($event)">
+  <form novalidate class="form" [formGroup]="registerForm" (ngSubmit)="submitButtonClick($event)">
     <fieldset>
       <legend>Asmenine informacija</legend>
       <!--PRASIDEDA LAIPSNIS-->
@@ -163,10 +163,11 @@
 
     <!--REGISTRACIJOS MYGTUKAS-->
     <div class="form-item form-buttons">
-      <button type="submit"
+      <button type="submit" [disabled]="registerForm.invalid"
       >Registruotis</button>
       <button class="button secondary outline">Cancel</button>
     </div>
 
   </form>
 </div>
+
