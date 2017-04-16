@@ -117,7 +117,7 @@
         registerForm.get('messageSummary').hasError('lengthOver400'))
         && registerForm.get('messageSummary').touched || (
          submitAttempt && !registerForm.get('messageSummary').touched) }">
-          Užpildykite teisingai lauką - min. 400 zodziu </span></label>
+          Užpildykite teisingai lauką - max. 400 zodziu </span></label>
         <textarea rows="6" name="messageSummary" placeholder="Įveskite savo projekto santrauka.."
                   formControlName="messageSummary" [ngClass]="{error: ( registerForm.get('messageSummary').hasError('required') ||
                   registerForm.get('messageSummary').hasError('lengthOver400'))
@@ -189,13 +189,18 @@
       </div> PAPILDOMAS INSTITUCIJOS KLAUSIMAS-->
     </fieldset>
 
+    <div style="margin-bottom: 20px">
+      <re-captcha  (captchaResponse)="handleCorrectCaptcha($event)" site_key="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>
+    </div>
     <!--REGISTRACIJOS MYGTUKAS-->
     <div class="form-item form-buttons">
-      <div *ngIf="registerForm.invalid && submitAttempt" class="message error" data-component="message">
+      <div *ngIf="registerForm.invalid && submitAttempt " class="message error" data-component="message">
         Suveskite duomenis teisingai!  </div>
-      <div *ngIf="registerForm.valid && submitAttempt && submitAccept" class="message success" data-component="message">
+      <div *ngIf="token =='' && submitAttempt && !submitAccept " class="message error" data-component="message">
+        Užpildykite Captcha!  </div>
+      <div *ngIf="registerForm.valid && submitAttempt && submitAccept && token != ''" class="message success" data-component="message">
         Sveikiname. Sėkmingai užsiregistravote! </div>
-      <button type="submit" (click)="initSubmit()"
+      <button type="submit" (click)="initSubmit();"
       >Registruotis</button>
       <button class="button secondary outline">Cancel</button>
     </div>

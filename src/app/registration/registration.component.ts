@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ParticipantService} from 'services/participant.service';
 import {CustomValidators} from 'ng2-validation';
 import {UsernameValidator} from '../validators/validationEmail'
+
+import {ReCaptchaComponent} from 'angular2-recaptcha/lib/captcha.component';
 
 @Component({
   selector: 'app-registration',
@@ -16,7 +18,17 @@ export class RegistrationComponent implements OnInit {
   submitAttempt = false;
   submitAccept = false;
 
-  constructor(private fb: FormBuilder, private participantService: ParticipantService) {
+  @ViewChild(ReCaptchaComponent) captcha:ReCaptchaComponent;
+  public token: String = '';
+
+  constructor(private fb: FormBuilder,
+              private participantService: ParticipantService) {
+  }
+
+  private handleCorrectCaptcha(response: string) {
+    this.token = this.captcha.getResponse();
+    console.log('reCAPTCHA response:');
+    console.log(this.token);
   }
 
   ngOnInit() {
@@ -40,14 +52,20 @@ export class RegistrationComponent implements OnInit {
   }
 
   initSubmit(){
+    console.log('Token: ' + this.token);
+    console.log('Submit Attempt: ' + this.submitAttempt);
     this.submitAttempt = true;
   }
 
   submitButtonClick(event) {
-    if(this.registerForm.valid && this.submitAttempt) {
-      console.log(this.registerForm);
+
+
+    if(this.registerForm.valid && this.submitAttempt && this.token != '') {
+      //console.log(this.registerForm);
       this.participantService.insertParticipant(this.registerForm.value);
-      this.submitAccept = true; 
+      this.submitAccept = true;
+      this.registerForm.reset();
+      //this.token = '';
     }
   }
 //C4.5
