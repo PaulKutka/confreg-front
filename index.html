@@ -3,53 +3,27 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <meta charset="utf-8"/>
-  <title>Pages - Front End</title>
+  <title>DAMMS registracijos platforma</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <link rel="apple-touch-icon" href="pages/ico/60.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
-  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-touch-fullscreen" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta content="" name="description"/>
-  <meta content="" name="author"/>
-  <!-- BEGIN PLUGINS -->
-  <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css"/>
-  <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-  <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-  <link href="assets/plugins/swiper/css/swiper.css" rel="stylesheet" type="text/css" media="screen"/>
+  <meta content="DAMMS registracijos platforma" name="description"/>
+  <meta content="Tomas & Paulius & Vilius" name="author"/>
 
-  <link href="assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
-  <!-- END PLUGINS -->
-  <!-- BEGIN PAGES CSS -->
-  <link class="main-stylesheet" href="pages/css/pages.css" rel="stylesheet" type="text/css"/>
-  <link class="main-stylesheet" href="pages/css/pages-icons.css" rel="stylesheet" type="text/css"/>
-
+  <!-- Kube CSS + Custom CSS-->
+  <link rel="stylesheet" href="assets/css/kube.css">
+  <link rel="stylesheet" href="assets/css/master.css">
 </head>
 
-<body class="pace-complete">
+  <body>
+  <div id="main">
+    <app-root></app-root>
+  </div>
 
-<app-root>Loading...</app-root>
+  <script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
 
-<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+<!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="assets/js/kube.js"></script>
+<script src="assets/js/custom.js"></script>
 
-<script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="assets/plugins/jquery/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/plugins/bootstrap-select2/select2.min.js"></script>
-<!-- BEGIN SWIPER DEPENDENCIES -->
-<script type="text/javascript" src="assets/plugins/swiper/js/swiper.jquery.min.js"></script>
-<script type="text/javascript" src="assets/plugins/jquery-validation/js/jquery.validate.js"></script>
-<script src="assets/plugins/modernizr.custom.js" type="text/javascript"></script>
-<!-- BEGIN PAGES FRONTEND LIB -->
-<script src="pages/js/pages.min.js"></script>
-<!-- END PAGES LIB -->
-
-
-<!-- BEGIN YOUR CUSTOM JS -->
-<script type="text/javascript" src="assets/js/custom.js"></script>
-<script type="text/javascript" src="assets/js/contact.js"></script>
 </html>

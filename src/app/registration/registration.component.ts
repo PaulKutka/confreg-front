@@ -37,6 +37,13 @@ export class RegistrationComponent implements OnInit {
       needsBill: ['Ne', Validators.required],
       billInstitution: [''],
     });
+    this.onEdit();
+  }
+
+  onEdit() {
+    this.participantService.getForm().subscribe(function (data: any) {
+        console.log(data);
+    }.bind(this));
   }
 
   initSubmit(){

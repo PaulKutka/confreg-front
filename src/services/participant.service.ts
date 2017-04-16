@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Participant } from 'models/participant';
-import {Http, Headers} from '@angular/http';
+import { Http, Headers, ResponseContentType, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/Rx';
 
 
 @Injectable()
 export class ParticipantService {
   private insertDataSource = "https://confregistration-api.herokuapp.com/post";
+  private findDataSource = "https://confregistration-api.herokuapp.com/find";
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
@@ -17,6 +20,14 @@ export class ParticipantService {
     return this.http.post(this.insertDataSource, body, {headers: this.headers})
       .toPromise()
       .catch(this.handleError);
+  }
+
+  getForm(): Observable<Response> {
+    let body = JSON.stringify("DAMSS-p1Bo1KM0");
+    return this.http.post(this.findDataSource, body, { responseType: ResponseContentType.Json })
+      .map(function (res: Response) {
+        return res.json();
+      })
   }
 
   private handleError(error: any): Promise<any> {
