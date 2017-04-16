@@ -17,18 +17,20 @@ export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   submitAttempt = false;
   submitAccept = false;
+  token = false;
 
-  @ViewChild(ReCaptchaComponent) captcha:ReCaptchaComponent;
-  public token: String = '';
+  private recaptchaSiteKey = '6Lf_RR0UAAAAAFnJLZEkeXmvNK6yUqFW-3V8DAsD';
+
+  private onCaptchaComplete(response: any) {
+    // console.log('reCAPTCHA response recieved:');
+    // console.log(response.success);
+    // console.log(response.token);
+    if(response.success)
+      this.token = response.success;
+  }
 
   constructor(private fb: FormBuilder,
               private participantService: ParticipantService) {
-  }
-
-  private handleCorrectCaptcha(response: string) {
-    this.token = this.captcha.getResponse();
-    console.log('reCAPTCHA response:');
-    console.log(this.token);
   }
 
   ngOnInit() {
@@ -41,7 +43,7 @@ export class RegistrationComponent implements OnInit {
       institution: ['', Validators.required],
       messageName: ['', Validators.required],
       messageAuthorsAndAffiliations: ['', Validators.required],
-      messageSummary: ['', Validators.compose([Validators.required, UsernameValidator.lengthOver400])],
+      messageSummary: ['', Validators.compose([Validators.required])], // removed validator
       needsRoom: ['Ne', Validators.required],
       roomType: [''],
       hasEscort: ['Ne', Validators.required],
@@ -52,7 +54,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   initSubmit(){
-    console.log('Token: ' + this.token);
     console.log('Submit Attempt: ' + this.submitAttempt);
     this.submitAttempt = true;
   }
@@ -60,13 +61,12 @@ export class RegistrationComponent implements OnInit {
   submitButtonClick(event) {
 
 
-    if(this.registerForm.valid && this.submitAttempt && this.token != '') {
+    if(this.registerForm.valid && this.submitAttempt && this.token ) {
       //console.log(this.registerForm);
       this.participantService.insertParticipant(this.registerForm.value);
       this.submitAccept = true;
-      this.registerForm.reset();
-      //this.token = '';
     }
+    this.token = false;
   }
 //C4.5
 }
