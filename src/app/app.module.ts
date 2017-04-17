@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './app.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { Ng2GoogleRecaptchaModule }  from 'ng2-google-recaptcha';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    ReactiveFormsModule,
+    HttpModule,
+    Ng2GoogleRecaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
