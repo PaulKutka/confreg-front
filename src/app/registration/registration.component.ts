@@ -4,7 +4,6 @@ import {ParticipantService} from 'services/participant.service';
 import {CustomValidators} from 'ng2-validation';
 import {UsernameValidator} from '../validators/validationEmail'
 
-import {ReCaptchaComponent} from 'angular2-recaptcha/lib/captcha.component';
 
 @Component({
   selector: 'app-registration',
