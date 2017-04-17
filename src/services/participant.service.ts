@@ -4,6 +4,7 @@ import { Http, Headers, ResponseContentType, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
+import {UniqueCode} from "../app/uniqueCode";
 
 // import { UniqueCode } from 'app/registration/registration.component';
 
@@ -24,8 +25,8 @@ export class ParticipantService {
   }
 
   getForm(): Observable<Response> {
-
-    var obj: any = { "uniqueCode": "DAMSS-zztXlY5u"  }; // "DAMSS-zztXlY5u"
+    console.log(UniqueCode.uniqueCode);
+    var obj: any = { "uniqueCode": UniqueCode.uniqueCode.toString()  }; // "DAMSS-zztXlY5u"
 
     let body = JSON.stringify(obj);
     return this.http.post(this.findDataSource, body, { responseType: ResponseContentType.Json })

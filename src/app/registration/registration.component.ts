@@ -4,6 +4,8 @@ import {ParticipantService} from 'services/participant.service';
 import {CustomValidators} from 'ng2-validation';
 import {UsernameValidator} from '../validators/validationEmail'
 
+import { UniqueCode } from '../uniqueCode';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -11,9 +13,6 @@ import {UsernameValidator} from '../validators/validationEmail'
   providers: [ParticipantService]
 })
 
-// export class UniqueCode {
-//   public static uniqueCode: String;
-// }
 
 export class RegistrationComponent implements OnInit {
 
@@ -45,7 +44,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   onEdit() {
-    // console.log(UniqueCode.uniqueCode);
+    console.log(UniqueCode.uniqueCode);
     this.participantService.getForm().subscribe(function (data: any) {
         console.log(data);
         this.registerForm = this.fb.group({
@@ -70,6 +69,10 @@ export class RegistrationComponent implements OnInit {
 
   initSubmit(){
     this.submitAttempt = true;
+  }
+
+  onKey(event: any) { // without type info
+    UniqueCode.uniqueCode = event.target.value;
   }
 
   submitButtonClick(event) {
