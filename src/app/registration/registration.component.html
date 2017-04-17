@@ -117,7 +117,7 @@
         registerForm.get('messageSummary').hasError('lengthOver400'))
         && registerForm.get('messageSummary').touched || (
          submitAttempt && !registerForm.get('messageSummary').touched) }">
-          Užpildykite teisingai lauką - max. 400 zodziu </span></label>
+          Užpildykite teisingai lauką - min. 400 zodziu </span></label>
         <textarea rows="6" name="messageSummary" placeholder="Įveskite savo projekto santrauka.."
                   formControlName="messageSummary" [ngClass]="{error: ( registerForm.get('messageSummary').hasError('required') ||
                   registerForm.get('messageSummary').hasError('lengthOver400'))
@@ -207,6 +207,8 @@
         Sveikiname. Sėkmingai užsiregistravote! </div>
       <button type="submit" (click)="initSubmit();"
       >Registruotis</button>
+      <button class="button secondary outline">Cancel</button>
+      <button (click)="onEdit()">Redaguoti jau užpildytą formą</button>
     </div>
 
   </form>
