@@ -38,7 +38,7 @@ export class RegistrationComponent implements OnInit {
       institution: ['', Validators.required],
       messageName: ['', Validators.required],
       messageAuthorsAndAffiliations: ['', Validators.required],
-      messageSummary: ['', Validators.compose([Validators.required])], //UsernameValidator.lengthOver400
+      messageSummary: ['', Validators.compose([Validators.required, UsernameValidator.lengthOver400])], //UsernameValidator.lengthOver400
       needsRoom: ['Ne', Validators.required],
       roomType: [''],
       hasEscort: ['Ne', Validators.required],
@@ -49,11 +49,17 @@ export class RegistrationComponent implements OnInit {
   }
 
   onEdit() {
-    console.log(this.receiveAttempt + " " + this.receivedEditData);
+
+
     this.receiveAttempt = true;
+    this.receivedEditData = false;
     this.participantService.getForm().subscribe(function (data: any) {
+
+        if (data.educationalDegree.toString() != '') {
+          this.receivedEditData = true;
+        }
         console.log(data);
-        this.receivedEditData = true;
+
         this.registerForm = this.fb.group({
           educationalDegree: [data.educationalDegree, Validators.required],
           firstName: [data.firstName, Validators.required],
@@ -63,7 +69,7 @@ export class RegistrationComponent implements OnInit {
           institution: [data.institution, Validators.required],
           messageName: [data.messageName, Validators.required],
           messageAuthorsAndAffiliations: [data.messageAuthorsAndAffiliations, Validators.required],
-          messageSummary: [data.messageSummary, Validators.compose([Validators.required])], // comented validator
+          messageSummary: [data.messageSummary, Validators.compose([Validators.required, UsernameValidator.lengthOver400])], // comented validator
           needsRoom: [data.needsRoom, Validators.required],
           roomType: [data.roomType],
           hasEscort: [data.hasEscort, Validators.required],
@@ -71,12 +77,9 @@ export class RegistrationComponent implements OnInit {
           needsBill: [data.needsBill, Validators.required],
           billInstitution: [data.billInstitution],
         });
-    }.bind(this));
-  }
 
-  showValue() {
-    console.log(this.registerForm.get('needsBill').value);
-    console.log(this.registerForm.get('needsBill'));
+    }.bind(this)); 
+
   }
 
   initSubmit(){
