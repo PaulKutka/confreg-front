@@ -20,6 +20,9 @@ export class RegistrationComponent implements OnInit {
   submitAttempt = false;
   submitAccept = false;
 
+  receiveAttempt = false;
+  receivedEditData = false;
+
   constructor(private fb: FormBuilder, private participantService: ParticipantService) {
   }
 
@@ -44,9 +47,11 @@ export class RegistrationComponent implements OnInit {
   }
 
   onEdit() {
-    console.log(UniqueCode.uniqueCode);
+    console.log(this.receiveAttempt + " " + this.receivedEditData);
+    this.receiveAttempt = true;
     this.participantService.getForm().subscribe(function (data: any) {
         console.log(data);
+        this.receivedEditData = true;
         this.registerForm = this.fb.group({
           educationalDegree: [data.educationalDegree, Validators.required],
           firstName: [data.firstName, Validators.required],
