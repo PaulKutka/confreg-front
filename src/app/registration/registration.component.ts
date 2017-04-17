@@ -10,6 +10,11 @@ import {UsernameValidator} from '../validators/validationEmail'
   styleUrls: ['./registration.component.css'],
   providers: [ParticipantService]
 })
+
+// export class UniqueCode {
+//   public static uniqueCode: String;
+// }
+
 export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
@@ -29,7 +34,7 @@ export class RegistrationComponent implements OnInit {
       institution: ['', Validators.required],
       messageName: ['', Validators.required],
       messageAuthorsAndAffiliations: ['', Validators.required],
-      messageSummary: ['', Validators.compose([Validators.required, UsernameValidator.lengthOver400])],
+      messageSummary: ['', Validators.compose([Validators.required])], //UsernameValidator.lengthOver400
       needsRoom: ['Ne', Validators.required],
       roomType: [''],
       hasEscort: ['Ne', Validators.required],
@@ -40,6 +45,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   onEdit() {
+    // console.log(UniqueCode.uniqueCode);
     this.participantService.getForm().subscribe(function (data: any) {
         console.log(data);
         this.registerForm = this.fb.group({
@@ -51,7 +57,7 @@ export class RegistrationComponent implements OnInit {
           institution: [data.institution, Validators.required],
           messageName: [data.messageName, Validators.required],
           messageAuthorsAndAffiliations: [data.messageAuthorsAndAffiliations, Validators.required],
-          messageSummary: [data.messageSummary, Validators.compose([Validators.required, UsernameValidator.lengthOver400])],
+          messageSummary: [data.messageSummary, Validators.compose([Validators.required])], // comented validator
           needsRoom: [data.needsRoom, Validators.required],
           roomType: [data.roomType],
           hasEscort: [data.hasEscort, Validators.required],
@@ -70,7 +76,7 @@ export class RegistrationComponent implements OnInit {
     if(this.registerForm.valid && this.submitAttempt) {
       console.log(this.registerForm);
       this.participantService.insertParticipant(this.registerForm.value);
-      this.submitAccept = true; 
+      this.submitAccept = true;
     }
   }
 //C4.5
