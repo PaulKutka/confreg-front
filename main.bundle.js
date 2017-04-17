@@ -1,6 +1,6 @@
 webpackJsonp([1,4],{
 
-/***/ 292:
+/***/ 316:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -9,33 +9,33 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 292;
+webpackEmptyContext.id = 316;
 
 
 /***/ }),
 
-/***/ 293:
+/***/ 317:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(379);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(400);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(424);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(427);
 
 
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=C:/Users/Tomas/IdeaProjects/conf-front/confreg-front/src/main.js.map
+//# sourceMappingURL=C:/Users/Leman/Desktop/confreg-front/src/main.js.map
 
 /***/ }),
 
-/***/ 399:
+/***/ 423:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53,32 +53,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'app works!';
     }
     AppComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(460),
-            styles: [__webpack_require__(457)]
+            template: __webpack_require__(532),
+            styles: [__webpack_require__(482)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
-//# sourceMappingURL=C:/Users/Tomas/IdeaProjects/conf-front/confreg-front/src/app.component.js.map
+//# sourceMappingURL=C:/Users/Leman/Desktop/confreg-front/src/app.component.js.map
 
 /***/ }),
 
-/***/ 400:
+/***/ 424:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(399);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__registration_registration_component__ = __webpack_require__(401);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(423);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__registration_registration_component__ = __webpack_require__(425);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -99,14 +98,14 @@ var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_5__registration_registration_component__["a" /* RegistrationComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* ReactiveFormsModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["ReactiveFormsModule"],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */]
             ],
             providers: [],
@@ -116,17 +115,20 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=C:/Users/Tomas/IdeaProjects/conf-front/confreg-front/src/app.module.js.map
+//# sourceMappingURL=C:/Users/Leman/Desktop/confreg-front/src/app.module.js.map
 
 /***/ }),
 
-/***/ 401:
+/***/ 425:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_services_participant_service__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_services_participant_service__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_validation__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_validation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_validation__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__validators_validationEmail__ = __webpack_require__(426);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegistrationComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -140,43 +142,81 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var RegistrationComponent = (function () {
     function RegistrationComponent(fb, participantService) {
         this.fb = fb;
         this.participantService = participantService;
+        this.submitAttempt = false;
+        this.submitAccept = false;
     }
     RegistrationComponent.prototype.ngOnInit = function () {
         this.registerForm = this.fb.group({
-            educationalDegree: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* Validators */].required],
-            firstName: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* Validators */].required],
-            lastName: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* Validators */].required],
-            phoneNumber: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* Validators */].required],
-            email: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* Validators */].required],
-            messageName: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* Validators */].required],
-            messageAuthorsAndAffiliations: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* Validators */].required],
-            messageSummary: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* Validators */].required]
+            educationalDegree: ['Daktaras', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            firstName: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            lastName: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            phoneNumber: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3_ng2_validation__["CustomValidators"].number])],
+            email: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3_ng2_validation__["CustomValidators"].email])],
+            institution: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            messageName: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            messageAuthorsAndAffiliations: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            messageSummary: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_4__validators_validationEmail__["a" /* UsernameValidator */].lengthOver400])],
+            needsRoom: ['Ne', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            roomType: [''],
+            hasEscort: ['Ne', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            escortWillParticipateInEvents: [''],
+            needsBill: ['Ne', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            billInstitution: [''],
         });
     };
+    RegistrationComponent.prototype.initSubmit = function () {
+        this.submitAttempt = true;
+    };
     RegistrationComponent.prototype.submitButtonClick = function (event) {
-        this.participantService.insertParticipant(this.registerForm.value);
+        if (this.registerForm.valid && this.submitAttempt) {
+            console.log(this.registerForm);
+            this.participantService.insertParticipant(this.registerForm.value);
+            this.submitAccept = true;
+        }
     };
     RegistrationComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Component */])({
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-registration',
-            template: __webpack_require__(461),
-            styles: [__webpack_require__(458)],
+            template: __webpack_require__(533),
+            styles: [__webpack_require__(483)],
             providers: [__WEBPACK_IMPORTED_MODULE_2_services_participant_service__["a" /* ParticipantService */]]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormBuilder */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_services_participant_service__["a" /* ParticipantService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_services_participant_service__["a" /* ParticipantService */]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_services_participant_service__["a" /* ParticipantService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_services_participant_service__["a" /* ParticipantService */]) === 'function' && _b) || Object])
     ], RegistrationComponent);
     return RegistrationComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=C:/Users/Tomas/IdeaProjects/conf-front/confreg-front/src/registration.component.js.map
+//# sourceMappingURL=C:/Users/Leman/Desktop/confreg-front/src/registration.component.js.map
 
 /***/ }),
 
-/***/ 402:
+/***/ 426:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsernameValidator; });
+var UsernameValidator = (function () {
+    function UsernameValidator() {
+    }
+    UsernameValidator.lengthOver400 = function (control) {
+        var wordArray = control.value.split(' ');
+        if (wordArray.length >= 400)
+            return { lengthOver400: true };
+        return null;
+    };
+    return UsernameValidator;
+}());
+//# sourceMappingURL=C:/Users/Leman/Desktop/confreg-front/src/validationEmail.js.map
+
+/***/ }),
+
+/***/ 427:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -188,17 +228,17 @@ var RegistrationComponent = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=C:/Users/Tomas/IdeaProjects/conf-front/confreg-front/src/environment.js.map
+//# sourceMappingURL=C:/Users/Leman/Desktop/confreg-front/src/environment.js.map
 
 /***/ }),
 
-/***/ 403:
+/***/ 428:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(535);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParticipantService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -230,20 +270,20 @@ var ParticipantService = (function () {
         return Promise.reject(error.message || error);
     };
     ParticipantService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Injectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === 'function' && _a) || Object])
     ], ParticipantService);
     return ParticipantService;
     var _a;
 }());
-//# sourceMappingURL=C:/Users/Tomas/IdeaProjects/conf-front/confreg-front/src/participant.service.js.map
+//# sourceMappingURL=C:/Users/Leman/Desktop/confreg-front/src/participant.service.js.map
 
 /***/ }),
 
-/***/ 457:
+/***/ 482:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(120)();
+exports = module.exports = __webpack_require__(122)();
 // imports
 
 
@@ -258,10 +298,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 458:
+/***/ 483:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(120)();
+exports = module.exports = __webpack_require__(122)();
 // imports
 
 
@@ -276,27 +316,27 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 460:
+/***/ 532:
 /***/ (function(module, exports) {
 
-module.exports = "<app-registration></app-registration>\r\n"
+module.exports = "<nav id=\"subnav\">\r\n  <ul>\r\n    <li class=\"\"><b><a href=\"#\">VU</a></b></li>\r\n    <li class=\"\"><b><a href=\"#\">DAMMS</a></b></li>\r\n  </ul>\r\n</nav>\r\n\r\n<div id=\"hero\">\r\n  <h1>Registracija</h1>\r\n  <p id=\"hero-lead\"></p>\r\n</div>\r\n\r\n<app-registration></app-registration>\r\n"
 
 /***/ }),
 
-/***/ 461:
+/***/ 533:
 /***/ (function(module, exports) {
 
-module.exports = "<!-- BEGIN HEADER -->\r\n<nav class=\"header static\" data-pages=\"header\">\r\n  <nav class=\"header relative\">\r\n    <div class=\"container relative\">\r\n      <div class=\"pull-left\">\r\n        <div class=\"header-inner\">\r\n          <img src=\"assets/images/logo.jpg\" class=\"logo\" width=\"152\" height=\"61\"\r\n               data-src-retina=\"assets/images/logo.jpg\" alt=\"\">\r\n        </div>\r\n      </div>\r\n      <div class=\"visible-sm-inline visible-xs-inline menu-toggler pull-right\" data-pages=\"header-toggle\"\r\n           data-pages-element=\"#header\">\r\n        <div class=\"one\"></div>\r\n        <div class=\"two\"></div>\r\n        <div class=\"three\"></div>\r\n      </div>\r\n      <div class=\"pull-right hidden-sm hidden-xs col-sm-6\">\r\n        <div class=\"header-inner text-right\">\r\n          <a class=\"m-r-15 hint-text link text-black b-r b-grey p-r-20\" href=\"#\"></a>\r\n          <p class=\"font-montserrat fs-13 text-master p-t-20 inline \">+370 61894512 <i class=\"m-l-10 fa fa-phone\"></i>\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n\r\n</nav>\r\n<!-- END MENU -->\r\n<!-- END HEADER -->\r\n<div class=\"p-t-60\">\r\n  <!-- START CONTACT SECTION -->\r\n  <section class=\"container container-fixed-lg p-t-65 p-b-100  sm-p-b-30 sm-m-b-30\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-8 col-sm-offset-2\">\r\n        <h2>Registracijos forma</h2>\r\n        <div class=\"p-r-40 sm-p-r-0\">\r\n\r\n          <div class=\"panel\" id=\"contact-panel\">\r\n            <p class=\"semi-bold no-margin\">Jeigu turite klausimų, prasome susisiekti su mumis.</p>\r\n            <br>\r\n            <br>\r\n            <form [formGroup]=\"registerForm\" (ngSubmit)=\"submitButtonClick($event)\" role=\"form\" autocomplete=\"off\" class=\"m-t-15\" id=\"contact-form\" >\r\n              <div class=\"information-block\">\r\n\r\n                <dt class=\"block-title p-b-15 text-black\">Asmenine informacija <i class=\"pg-arrow_right m-l-10\"></i>\r\n                </dt>\r\n\r\n                <div class=\"form-group form-group-default form-group-default-select2 required\">\r\n                  <label>Mokslinis laipsnis</label>\r\n                  <select class=\"full-width\" data-placeholder=\"Pasirinkite laipsnį\" data-init-plugin=\"select2\" formControlName=\"educationalDegree\">\r\n                    <optgroup label=\"Laipsniai\">\r\n                      <option value=\"DR\">Daktaras</option>\r\n                      <option value=\"PR\">Profesorius</option>\r\n                      <option value=\"KT\">Kita</option>\r\n                    </optgroup>\r\n                  </select>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-6\">\r\n                    <div class=\"form-group form-group-default required\">\r\n                      <label>Vardas</label>\r\n                      <input type=\"text\" name=\"firstName\" class=\"form-control\" formControlName=\"firstName\" required>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-sm-6\">\r\n                    <div class=\"form-group form-group-default required\">\r\n                      <label>Pavardė</label>\r\n                      <input type=\"text\" name=\"last-name\" class=\"form-control\" formControlName=\"lastName\" required>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"form-group form-group-default required\">\r\n                  <label>Telefono numeris</label>\r\n                  <input type=\"tel\" name=\"tel\" placeholder=\"Įveskite savo telefono numerį..\" class=\"form-control\"\r\n                         formControlName=\"phoneNumber\" required>\r\n                </div>\r\n                <div class=\"form-group form-group-default required\">\r\n                  <label>El. paštas</label>\r\n                  <input type=\"text\" name=\"institution\" placeholder=\"Įveskite atstovaujamą instituciją..\" class=\"form-control\" required>\r\n                </div>\r\n\r\n              </div>\r\n\r\n\r\n              <div class=\"information-block\">\r\n\r\n                <dt class=\"block-title p-b-15 text-black\">Pranešimo informacija <i class=\"pg-arrow_right m-l-10\"></i>\r\n                </dt>\r\n\r\n                <div class=\"form-group form-group-default required\">\r\n                  <label>Pavadinimas</label>\r\n                  <input type=\"text\" name=\"project-name\" placeholder=\"Pranešimo pavadinimas..\" class=\"form-control\"\r\n                         formControlName=\"messageName\" required>\r\n                </div>\r\n\r\n                <div class=\"form-group form-group-default required\">\r\n                  <label>Pranešimo autoriai ir afiliacijos</label>\r\n                  <textarea name=\"authors\" placeholder=\"Pranešimo autoriai ir afiliacijos..\" style=\"height:100px\"\r\n                            class=\"form-control\" formControlName=\"messageAuthorsAndAffiliations\" required></textarea>\r\n                </div>\r\n\r\n                <div class=\"form-group form-group-default required\">\r\n                  <label>Pranešimo santrauka</label>\r\n                  <textarea name=\"short-info\" placeholder=\"Pranešimo santrauka (400 žodžių)..\" style=\"height:100px\"\r\n                            class=\"form-control\" formControlName=\"messageSummary\" required></textarea>\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <div class=\"information-block\">\r\n\r\n                <dt class=\"block-title p-b-15 text-black\">Papildoma informacija <i class=\"pg-arrow_right m-l-10\"></i>\r\n                </dt>\r\n\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-6\">\r\n                    <div class=\"radio radio radio-danger text\">\r\n                      <p>Ar reikalingas viešbučio kambarys?</p>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-sm-6 text-right\">\r\n                    <div class=\"radio radio radio-danger\">\r\n                      <input type=\"radio\" value=\"yes\" name=\"hotel\" id=\"hotelYes\">\r\n                      <label for=\"hotelYes\">Taip</label>\r\n                      <input type=\"radio\" checked=\"checked\" value=\"no\" name=\"hotel\" id=\"hotelNo\">\r\n                      <label for=\"hotelNo\">Ne</label>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-6\">\r\n                    <div class=\"radio radio radio-danger text\">\r\n                      <p>Ar bus lydinčių asmenų?</p>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-sm-6 text-right\">\r\n                    <div class=\"radio radio radio-danger\">\r\n                      <input type=\"radio\" value=\"yes\" name=\"person\" id=\"personYes\">\r\n                      <label for=\"personYes\">Taip</label>\r\n                      <input type=\"radio\" checked=\"checked\" value=\"no\" name=\"person\" id=\"personNo\">\r\n                      <label for=\"personNo\">Ne</label>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-6\">\r\n                    <div class=\"radio radio radio-danger text\">\r\n                      <p>Ar reikalinga išankstinė sąskaitos faktūra dalyvio mokesčiui apmokėti?</p>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-sm-6 text-right\">\r\n                    <div class=\"radio radio radio-danger\">\r\n                      <input type=\"radio\" value=\"yes\" name=\"contract\" id=\"contractYes\">\r\n                      <label for=\"contractYes\">Taip</label>\r\n                      <input type=\"radio\" checked=\"checked\" value=\"no\" name=\"contract\" id=\"contractNo\">\r\n                      <label for=\"contractNo\">Ne</label>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n\r\n              </div>\r\n\r\n\r\n              <div class=\"sm-p-t-10 clearfix\">\r\n                <p class=\"pull-left small hint-text m-t-5 font-arial\">Registuodamasis aš sutinku, kad viršuje esanti\r\n                  informacija yra teisinga. </p>\r\n                <button type=\"submit\" class=\"btn btn-danger font-montserrat all-caps fs-12 pull-right xs-pull-left\">Registruotis\r\n                </button>\r\n              </div>\r\n              <div class=\"clearfix\"></div>\r\n            </form>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </section>\r\n  <!-- END CONTACT SECION -->\r\n  <!-- START FOOTER -->\r\n  <section class=\"p-b-30 p-t-40\">\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-6\">\r\n          <div class=\"m-t-10 \">\r\n            <ul class=\"no-style fs-11 no-padding font-arial\">\r\n              <li class=\"inline no-padding\"><a class=\" text-master p-r-10 b-r b-grey\" href=\"#\">VU</a></li>\r\n              <li class=\"inline no-padding\"><a class=\"hint-text text-master p-l-10 p-r-10 xs-no-padding xs-m-t-10\"\r\n                                               href=\"#\">DAMMS</a></li>\r\n            </ul>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-sm-6 text-right font-arial sm-text-left\">\r\n          <p class=\"fs-11 m-t-10 muted\">&copy; 2017 Vilniaus Universitetas. Visos teisės saugomos.</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </section>\r\n  <!-- END FOOTER -->\r\n</div>\r\n"
+module.exports = "<div id=\"kube-component\" class=\"content\">\r\n  <form novalidate class=\"form\" [formGroup]=\"registerForm\" (ngSubmit)=\"submitButtonClick($event)\">\r\n    <fieldset>\r\n      <legend>Asmenine informacija</legend>\r\n      <!--PRASIDEDA LAIPSNIS-->\r\n      <div class=\"form-item\">\r\n        <label>Mokslinis laipsnis</label>\r\n        <select formControlName=\"educationalDegree\" class=\"w50\">\r\n          <option value=\"Daktaras\" [selected]=\"true\" >Daktaras</option>\r\n          <option value=\"Profesorius\">Profesorius</option>\r\n          <option value=\"Be laipsnio\">Be laipsnio</option>\r\n        </select>\r\n      </div>\r\n      <!--BAIGIASI LAIPSNIS-->\r\n      <!--PRASIDEDA VARDAS-->\r\n      <div class=\"form-item\">\r\n        <label>Vardas<span class=\"hidden\" [ngClass]=\"{'error display-inline':\r\n         (registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched)\r\n         || ( submitAttempt && !registerForm.get('firstName').touched)}\">\r\n          Užpildykite teisingai lauką </span></label>\r\n        <input type=\"text\" name=\"firstName\" class=\"w50\" placeholder=\"Įveskite savo vardą..\"\r\n               formControlName=\"firstName\" [ngClass]=\"{error:\r\n               (registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched)\r\n               || ( submitAttempt && !registerForm.get('firstName').touched)}\"  required>\r\n      </div>\r\n      <!--BAIGIASI VARDAS\r\n      <!--PRASIDEDA PAVARDE-->\r\n      <div class=\"form-item\">\r\n        <label>Pavardė<span class=\"hidden\" [ngClass]=\"{'error display-inline':\r\n        (registerForm.get('lastName').hasError('required') && registerForm.get('lastName').touched)\r\n        ||  (submitAttempt && !registerForm.get('lastName').touched) }\">\r\n          Užpildykite teisingai lauką </span></label>\r\n        <input type=\"text\" name=\"lastName\" class=\"w50\" placeholder=\"Įveskite savo pavardę..\"\r\n               formControlName=\"lastName\" [ngClass]=\"{error:\r\n               (registerForm.get('lastName').hasError('required') && registerForm.get('lastName').touched)\r\n               ||  (submitAttempt && !registerForm.get('lastName').touched) }\" required>\r\n      </div>\r\n      <!--BAIGIASI PAVARDE-->\r\n      <!--PRASIDEDA TELEFONO NUMERIS-->\r\n      <div class=\"form-item\">\r\n        <label>Telefono numeris<span class=\"hidden\" [ngClass]=\"{'error display-inline':\r\n        (registerForm.get('phoneNumber').hasError('required') ||\r\n        registerForm.get('phoneNumber').hasError('number'))\r\n        && registerForm.get('phoneNumber').touched ||  (submitAttempt && !registerForm.get('phoneNumber').touched ) }\">\r\n          Užpildykite teisingai lauką </span></label>\r\n        <input type=\"tel\" name=\"phoneNumber\" class=\"w50\" placeholder=\"Įveskite savo telefono numerį..\"\r\n               formControlName=\"phoneNumber\" [ngClass]=\"{error: (registerForm.get('phoneNumber').hasError('required') ||\r\n               registerForm.get('phoneNumber').hasError('number'))\r\n               && registerForm.get('phoneNumber').touched\r\n              ||  (submitAttempt && ! registerForm.get('phoneNumber').touched ) }\" required>\r\n      </div>\r\n      <!--BAIGIASI TELEFONO NUMERIS-->\r\n      <!--PRASIDEDA TELEFONO NUMERIS-->\r\n      <div class=\"form-item\">\r\n        <label>Elektroninis pastas<span class=\"hidden\" [ngClass]=\"{'error display-inline':\r\n         (registerForm.get('email').hasError('required') ||\r\n        registerForm.get('email').hasError('email'))\r\n        && registerForm.get('email').touched ||\r\n          (submitAttempt && !registerForm.get('email').touched ) }\">\r\n          Užpildykite teisingai lauką </span></label>\r\n        <input type=\"email\" name=\"email\" class=\"w50\" placeholder=\"Įveskite savo elektroninį paštą..\"\r\n               formControlName=\"email\" [ngClass]=\"{error: (registerForm.get('email').hasError('required') ||\r\n               registerForm.get('email').hasError('email'))\r\n               && registerForm.get('email').touched ||\r\n               (submitAttempt && !registerForm.get('email').touched ) }\" required>\r\n      </div>\r\n      <!--BAIGIASI TELEFONO NUMERIS-->\r\n      <!--PRASIDEDA INSTITUCIJA-->\r\n      <div class=\"form-item\">\r\n        <label>Atstovaujama institucija<span class=\"hidden\" [ngClass]=\"{'error display-inline':\r\n         (registerForm.get('institution').hasError('required')\r\n        && registerForm.get('institution').touched) ||\r\n        ( submitAttempt && !registerForm.get('institution').touched) }\">\r\n          Užpildykite teisingai lauką </span></label>\r\n        <input type=\"text\" name=\"institution\" class=\"w50\" placeholder=\"Įveskite atstovaujamą instituciją..\"\r\n               formControlName=\"institution\" [ngClass]=\"{error:\r\n               (registerForm.get('institution').hasError('required') && registerForm.get('institution').touched)\r\n                ||  ( submitAttempt && !registerForm.get('institution').touched) }\" required>\r\n      </div>\r\n      <!--BAIGIASI INSTITUCIJA-->\r\n    </fieldset>\r\n\r\n\r\n    <fieldset>\r\n      <legend>Pranesimo informacija</legend>\r\n      <!--PRASIDEDA PRANESIMO PAVADINIMAS-->\r\n      <div class=\"form-item\">\r\n        <label>Pranesimo pavadinimas<span class=\"hidden\" [ngClass]=\"{'error display-inline':\r\n        (registerForm.get('messageName').hasError('required')\r\n        && registerForm.get('messageName').touched) ||\r\n         ( submitAttempt && !registerForm.get('messageName').touched) }\">\r\n          Užpildykite teisingai lauką </span></label>\r\n        <input type=\"text\" name=\"messageName\" class=\"w50\" placeholder=\"Įveskite savo projekto pavadinimą..\"\r\n               formControlName=\"messageName\" [ngClass]=\"{error:\r\n               (registerForm.get('messageName').hasError('required') && registerForm.get('messageName').touched)\r\n               ||  ( submitAttempt && !registerForm.get('messageName').touched)  }\" required>\r\n      </div>\r\n      <!--BAIGIASI PRANESIMO PAVADINIMAS-->\r\n      <!--PRASIDEDA PRANESIMO AUTORIAI-->\r\n      <div class=\"form-item\">\r\n        <label>Pranesimo autoriai<span class=\"hidden\" [ngClass]=\"{'error display-inline':\r\n        (registerForm.get('messageAuthorsAndAffiliations').hasError('required')\r\n        && registerForm.get('messageAuthorsAndAffiliations').touched) ||\r\n         ( submitAttempt && !registerForm.get('messageAuthorsAndAffiliations').touched) }\">\r\n          Užpildykite teisingai lauką </span></label>\r\n        <textarea  rows=\"6\" name=\"messageAuthorsAndAffiliations\" placeholder=\"Įveskite savo projekto autorius..\"\r\n                  formControlName=\"messageAuthorsAndAffiliations\" [ngClass]=\"{error:\r\n                   (registerForm.get('messageAuthorsAndAffiliations').hasError('required')\r\n                  && registerForm.get('messageAuthorsAndAffiliations').touched) ||\r\n                    ( submitAttempt && !registerForm.get('messageAuthorsAndAffiliations').touched) }\" required></textarea>\r\n      </div>\r\n      <!--BAIGIASI PRANESIMO AUTORIAI-->\r\n      <!--PRASIDEDA PRANESIMO SANTRAUKA-->\r\n      <div class=\"form-item\">\r\n        <label>Pranesimo santrauka<span class=\"hidden\" [ngClass]=\"{'error display-inline': (\r\n        registerForm.get('messageSummary').hasError('required') ||\r\n        registerForm.get('messageSummary').hasError('lengthOver400'))\r\n        && registerForm.get('messageSummary').touched || (\r\n         submitAttempt && !registerForm.get('messageSummary').touched) }\">\r\n          Užpildykite teisingai lauką - min. 400 zodziu </span></label>\r\n        <textarea rows=\"6\" name=\"messageSummary\" placeholder=\"Įveskite savo projekto santrauka..\"\r\n                  formControlName=\"messageSummary\" [ngClass]=\"{error: ( registerForm.get('messageSummary').hasError('required') ||\r\n                  registerForm.get('messageSummary').hasError('lengthOver400'))\r\n                  && registerForm.get('messageSummary').touched ||\r\n                   (submitAttempt && !registerForm.get('messageSummary').touched ) }\" required></textarea>\r\n\r\n      </div>\r\n      <!--BAIGIASI PRANESIMO SANTRAUKA-->\r\n    </fieldset>\r\n\r\n\r\n    <fieldset>\r\n      <legend>Papildoma informacija</legend>\r\n\r\n      <!--PRASIDEDA VIESBUCIO KLAUSIMAS-->\r\n      <div class=\"form-item\">\r\n        <p>Ar reikalingas viesbucio kambarys?</p>\r\n        <div class=\"form-item form-checkboxes\">\r\n          <label class=\"checkbox\"><input type=\"radio\" name=\"needsRoom\" formControlName=\"needsRoom\" value=\"Taip\">Taip</label>\r\n          <label class=\"checkbox\"><input  type=\"radio\" name=\"needsRoom\" formControlName=\"needsRoom\" value=\"Ne\"\r\n                                         [checked]=\"true\">Ne</label>\r\n        </div>\r\n      </div>\r\n      <div class=\"form-item extraHotel hidden\">\r\n        <label>Viesbucio tipas</label>\r\n        <select formControlName=\"roomType\" class=\"w50\">\r\n          <option value=\"Vienvietis\" [selected]=\"true\">Vienvietis</option>\r\n          <option value=\"Dvivietis\">Dvivietis</option>\r\n          <option value=\"Kitas\">Kitas</option>\r\n        </select>\r\n      </div>\r\n      <!--BAIGIASI PRANESIMO PAVADINIMAS-->\r\n\r\n      <!--PRASIDEDA PAPILDOMO ASMENS KLAUSIMAS-->\r\n      <div class=\"form-item\">\r\n        <p>Ar bus lydinciu zmoniu?</p>\r\n        <div class=\"form-item form-checkboxes\">\r\n\r\n          <label class=\"checkbox\"><input type=\"radio\" name=\"hasEscort\" formControlName=\"hasEscort\" value=\"Taip\">Taip</label>\r\n          <label class=\"checkbox\"><input type=\"radio\" name=\"hasEscort\" formControlName=\"hasEscort\" value=\"Ne\"\r\n                                         [checked]=\"true\">Ne</label>\r\n        </div>\r\n      </div>\r\n      <div class=\"form-item extraPerson hidden\">\r\n        <label>Ar dalyvaus papildomuose renginiuose?</label>\r\n        <select formControlName=\"escortWillParticipateInEvents\" class=\"w50\">\r\n          <option value=\"Taip\" [selected]=\"true\">Taip</option>\r\n          <option value=\"Ne\">Ne</option>\r\n        </select>\r\n      </div>\r\n      <!--BAIGIASI PAPILDOMO ASMENS KLAUSIMAS-->\r\n\r\n      <!--PRASIDEDA PAPILDOMAS INSTITUCIJOS KLAUSIMAS-->\r\n      <div class=\"form-item \">\r\n        <p>Ar reikalinga išankstinė sąskaitos faktūra dalyvio mokesčiui apmokėti?</p>\r\n        <div class=\"form-item form-checkboxes\">\r\n          <label class=\"checkbox\"><input type=\"radio\" name=\"needsBill\" formControlName=\"needsBill\"\r\n                                         value=\"Taip\">Taip</label>\r\n          <label class=\"checkbox\"><input type=\"radio\" name=\"needsBill\" formControlName=\"needsBill\"\r\n                                         value=\"Ne\" [checked]=\"true\">Ne</label>\r\n        </div>\r\n      </div>\r\n      <div class=\"form-item extraPayForPerson hidden\">\r\n        <label>Institucijos pavadinimas</label>\r\n        <input type=\"text\" name=\"billInstitution\" class=\"w50\"\r\n               formControlName=\"billInstitution\">\r\n      </div>\r\n      <!--BAIGIASI\r\n      </div> PAPILDOMAS INSTITUCIJOS KLAUSIMAS-->\r\n    </fieldset>\r\n\r\n    <!--REGISTRACIJOS MYGTUKAS-->\r\n    <div class=\"form-item form-buttons\">\r\n      <div *ngIf=\"registerForm.invalid && submitAttempt\" class=\"message error\" data-component=\"message\">\r\n        Suveskite duomenis teisingai!  </div>\r\n      <div *ngIf=\"registerForm.valid && submitAttempt && submitAccept\" class=\"message success\" data-component=\"message\">\r\n        Sveikiname. Sėkmingai užsiregistravote! </div>\r\n      <button type=\"submit\" (click)=\"initSubmit()\"\r\n      >Registruotis</button>\r\n      <button class=\"button secondary outline\">Cancel</button>\r\n    </div>\r\n\r\n  </form>\r\n</div>\r\n\r\n<!--[disabled]=\"registerForm.invalid\"-->\r\n"
 
 /***/ }),
 
-/***/ 474:
+/***/ 546:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(293);
+module.exports = __webpack_require__(317);
 
 
 /***/ })
 
-},[474]);
+},[546]);
 //# sourceMappingURL=main.bundle.js.map

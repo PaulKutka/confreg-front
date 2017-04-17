@@ -39,6 +39,29 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
+  onEdit() {
+    this.participantService.getForm().subscribe(function (data: any) {
+        console.log(data);
+        this.registerForm = this.fb.group({
+          educationalDegree: [data.educationalDegree, Validators.required],
+          firstName: [data.firstName, Validators.required],
+          lastName: [data.lastName, Validators.required],
+          phoneNumber: [data.phoneNumber, Validators.compose([Validators.required, CustomValidators.number])],
+          email: [data.email, Validators.compose([Validators.required, CustomValidators.email])],
+          institution: [data.institution, Validators.required],
+          messageName: [data.messageName, Validators.required],
+          messageAuthorsAndAffiliations: [data.messageAuthorsAndAffiliations, Validators.required],
+          messageSummary: [data.messageSummary, Validators.compose([Validators.required, UsernameValidator.lengthOver400])],
+          needsRoom: [data.needsRoom, Validators.required],
+          roomType: [data.roomType],
+          hasEscort: [data.hasEscort, Validators.required],
+          escortWillParticipateInEvents: [data.escortWillParticipateInEvents],
+          needsBill: [data.needsBill, Validators.required],
+          billInstitution: [data.billInstitution],
+        });
+    }.bind(this));
+  }
+
   initSubmit(){
     this.submitAttempt = true;
   }
