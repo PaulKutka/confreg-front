@@ -25,8 +25,7 @@ export class ParticipantService {
   }
 
   getForm(): Observable<Response> {
-    var obj: any = { "uniqueCode": UniqueCode.uniqueCode.toString()  }; // "DAMSS-zztXlY5u"
-
+    let obj: any = { "uniqueCode": UniqueCode.uniqueCode.toString()  }; // "DAMSS-zztXlY5u"
     let body = JSON.stringify(obj);
     return this.http.post(this.findDataSource, body, { responseType: ResponseContentType.Json })
       .map(function (res: Response) {

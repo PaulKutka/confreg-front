@@ -26,6 +26,8 @@ export class RegistrationComponent implements OnInit {
   constructor(private fb: FormBuilder, private participantService: ParticipantService) {
   }
 
+
+
   ngOnInit() {
     this.registerForm = this.fb.group({
       educationalDegree: ['Daktaras', Validators.required],
@@ -70,6 +72,11 @@ export class RegistrationComponent implements OnInit {
           billInstitution: [data.billInstitution],
         });
     }.bind(this));
+  }
+
+  showValue() {
+    console.log(this.registerForm.get('needsBill').value);
+    console.log(this.registerForm.get('needsBill'));
   }
 
   initSubmit(){

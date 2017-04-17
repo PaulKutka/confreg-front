@@ -148,7 +148,7 @@
                                          [checked]="true">Ne</label>
         </div>
       </div>
-      <div class="form-item extraHotel hidden">
+      <div *ngIf="registerForm.get('needsRoom').value.toString() == 'Taip'" class="form-item extraHotel">
         <label>Viesbucio tipas</label>
         <select formControlName="roomType" class="w50">
           <option value="Vienvietis" [selected]="true">Vienvietis</option>
@@ -168,7 +168,7 @@
                                          [checked]="true">Ne</label>
         </div>
       </div>
-      <div class="form-item extraPerson hidden">
+      <div *ngIf="registerForm.get('hasEscort').value.toString() == 'Taip'" class="form-item extraPerson">
         <label>Ar dalyvaus papildomuose renginiuose?</label>
         <select formControlName="escortWillParticipateInEvents" class="w50">
           <option value="Taip" [selected]="true">Taip</option>
@@ -182,12 +182,12 @@
         <p>Ar reikalinga išankstinė sąskaitos faktūra dalyvio mokesčiui apmokėti?</p>
         <div class="form-item form-checkboxes">
           <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
-                                         value="Taip">Taip</label>
+                                         value="Taip" >Taip</label>
           <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
-                                         value="Ne" [checked]="true">Ne</label>
+                                         value="Ne" [checked]="true"  >Ne</label>
         </div>
       </div>
-      <div class="form-item extraPayForPerson hidden">
+      <div *ngIf="registerForm.get('needsBill').value.toString() == 'Taip'"  class="form-item extraPayForPerson">
         <label>Institucijos pavadinimas</label>
         <input type="text" name="billInstitution" class="w50"
                formControlName="billInstitution">
