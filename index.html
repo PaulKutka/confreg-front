@@ -7,11 +7,12 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <meta content="DAMMS registracijos platforma" name="description"/>
-  <meta content="Tomas & Paulius & Vilius & Lukas" name="author"/>
+  <meta content="Tomas & Paulius & Vilius" name="author"/>
 
   <!-- Kube CSS + Custom CSS-->
   <link rel="stylesheet" href="assets/css/kube.css">
   <link rel="stylesheet" href="assets/css/master.css">
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 </head>
 
   <body>
@@ -19,8 +20,11 @@
     <app-root></app-root>
   </div>
 
+  <script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+
 <!-- Kube JS + jQuery are used for some functionality, but are not required for the basic setup -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="assets/js/kube.js"></script>
+<script src="assets/js/custom.js"></script>
 
 </html>

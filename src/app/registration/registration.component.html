@@ -195,13 +195,25 @@
       <!--BAIGIASI
       </div> PAPILDOMAS INSTITUCIJOS KLAUSIMAS-->
     </fieldset>
- 
+
    <ng2-google-recaptcha
       style="margin-bottom: 20px"
       [siteKey]="recaptchaSiteKey"
       (onCaptchaComplete)="onCaptchaComplete($event)">
     </ng2-google-recaptcha>
-  
+
+    <!--REGISTRACIJOS MYGTUKAS-->
+    <div class="form-item form-buttons">
+      <div *ngIf="registerForm.invalid && submitAttempt " class="message error" data-component="message">
+        Suveskite duomenis teisingai!  </div>
+      <div *ngIf="!token && submitAttempt && !submitAccept " class="message error" data-component="message">
+        Užpildykite Captcha!  </div>
+      <div *ngIf="!receivedEditData && receiveAttempt" class="message error" data-component="message">
+        Nėra tokio kodo!  </div>
+      <div *ngIf="registerForm.valid && submitAttempt && submitAccept && token " class="message success" data-component="message">
+        Sveikiname. Sėkmingai užsiregistravote! </div>
+    </div>
+
     <!--REGISTRACIJOS MYGTUKAS-->
     <div class="row gutters">
       <div class="col col-6">
@@ -216,23 +228,11 @@
             <button class="button red outline" (click)="onEdit()"><i class="kube-search"></i> Redaguoti formą</button>
           </div>
         </div>
-      </div> 
-   
-    <!--REGISTRACIJOS MYGTUKAS-->
-    <div class="form-item form-buttons">
-      <div *ngIf="registerForm.invalid && submitAttempt " class="message error" data-component="message">
-        Suveskite duomenis teisingai!  </div>
-      <div *ngIf="!token && submitAttempt && !submitAccept " class="message error" data-component="message">
-        Užpildykite Captcha!  </div>
-      <div *ngIf="!receivedEditData && receiveAttempt" class="message error" data-component="message">
-        Nėra tokio kodo!  </div>
-      <div *ngIf="registerForm.valid && submitAttempt && submitAccept && token " class="message success" data-component="message">
-        Sveikiname. Sėkmingai užsiregistravote! </div>
-      <button type="submit" (click)="initSubmit();"
-      >Registruotis</button> 
+      </div>
+
+
+
     </div>
-
-
   </form>
 </div>
 
