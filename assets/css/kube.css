@@ -975,7 +975,7 @@ button,
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 15px;
   color: #fff;
-  background-color: #FF3366;
+  background-color: #1c86f2;
   border-radius: 3px;
   min-height: 40px;
   padding: 8px 20px;
@@ -1001,7 +1001,7 @@ button:hover,
   outline: none;
   text-decoration: none;
   color: #fff;
-  background-color: #FF3366; }
+  background-color: #4ca0f5; }
 
 .button:disabled,
 .button.disabled {
@@ -1031,12 +1031,12 @@ button:hover,
 .button.outline {
   background: none;
   border-width: 2px;
-  border-color: #FF3366;
-  color: #FF3366; }
+  border-color: #1c86f2;
+  color: #1c86f2; }
   .button.outline:hover {
     background: none;
-    color: rgba(255, 4, 5, 0.6);
-    border-color: rgba(255, 4, 5, 0.5); }
+    color: rgba(28, 134, 242, 0.6);
+    border-color: rgba(28, 134, 242, 0.5); }
   .button.outline:disabled, .button.outline.disabled {
     background: none;
     color: rgba(28, 134, 242, 0.7);
