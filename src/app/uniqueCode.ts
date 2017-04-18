@@ -6,5 +6,5 @@
 export class UniqueCode {
   // uniqueString: String = "";
   static uniqueCode: String = "";
-  static isFound: boolean = false;
+  static userId: any = "";
 }

@@ -12,6 +12,7 @@ import {UniqueCode} from "../app/uniqueCode";
 export class ParticipantService {
   private insertDataSource = "https://confregistration-api.herokuapp.com/post";
   private findDataSource = "https://confregistration-api.herokuapp.com/find";
+  private updateDataSource = "https://confregistration-api.herokuapp.com/update/" + UniqueCode.userId;
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
@@ -33,8 +34,17 @@ export class ParticipantService {
       }).catch(this.handleError);
   }
 
+  updateForm(participant) {
+    let body = JSON.stringify(participant);
+    console.log(body  + " | " + UniqueCode.userId);
+    return this.http.put(this.updateDataSource, body, {headers: this.headers})
+      .toPromise()
+      .catch(this.handleError);
+  }
+
+
+
   private handleError(error: any): Promise<any> {
-    UniqueCode.isFound = false;
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }

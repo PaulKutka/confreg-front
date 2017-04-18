@@ -216,9 +216,15 @@
 
     <!--REGISTRACIJOS MYGTUKAS-->
     <div class="row gutters">
-      <div class="col col-6">
+      <div *ngIf="!receivedEditData" class="col col-6">
         <div class="form-item">
           <button class="button red" type="submit" (click)="initSubmit()">Registruotis</button>
+        </div>
+      </div>
+      <div *ngIf="receivedEditData" class="col col-6">
+        <div class="form-item">
+          <button class="button red outline" (click)="updateForm(event)" >Išsaugoti formą</button>
+          <button class="button red"  >Ištrinti formą</button>
         </div>
       </div>
       <div class="col col-6">

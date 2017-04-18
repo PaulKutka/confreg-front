@@ -19,32 +19,26 @@ import {ReCaptchaComponent} from 'angular2-recaptcha/lib/captcha.component';
 
 export class RegistrationComponent implements OnInit {
 
+  private recaptchaSiteKey = '6Lf_RR0UAAAAAFnJLZEkeXmvNK6yUqFW-3V8DAsD';
+
   registerForm: FormGroup;
   submitAttempt = false;
   submitAccept = false;
+
+
   token = false;
-
-  private recaptchaSiteKey = '6Lf_RR0UAAAAAFnJLZEkeXmvNK6yUqFW-3V8DAsD';
-
+  receiveAttempt = false;
+  receivedEditData = false;
   private onCaptchaComplete(response: any) {
-    // console.log('reCAPTCHA response recieved:');
-    // console.log(response.success);
-    // console.log(response.token);
     if(response.success)
       this.token = response.success;
   }
-
-
-  receiveAttempt = false;
-  receivedEditData = false;
 
 
   constructor(private fb: FormBuilder,
               private participantService: ParticipantService) {
 
   }
-
-
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -67,16 +61,15 @@ export class RegistrationComponent implements OnInit {
   }
 
   onEdit() {
-
-
     this.receiveAttempt = true;
     this.receivedEditData = false;
     this.participantService.getForm().subscribe(function (data: any) {
 
-        if (data.educationalDegree.toString() != '') {
+        if (data.id.toString() != '') {
+          UniqueCode.userId = data.id;
           this.receivedEditData = true;
         }
-        console.log(data);
+        // console.log(data);
 
         this.registerForm = this.fb.group({
           educationalDegree: [data.educationalDegree, Validators.required],
@@ -96,8 +89,7 @@ export class RegistrationComponent implements OnInit {
           billInstitution: [data.billInstitution],
         });
 
-    }.bind(this)); 
-
+    }.bind(this));
   }
 
   initSubmit(){
@@ -110,14 +102,18 @@ export class RegistrationComponent implements OnInit {
   }
 
   submitButtonClick(event) {
-
-
     if(this.registerForm.valid && this.submitAttempt && this.token ) {
-      //console.log(this.registerForm);
       this.participantService.insertParticipant(this.registerForm.value);
       this.submitAccept = true;
     }
-    this.token = false;
   }
+
+  updateForm(event) {
+    if(this.registerForm.valid) {
+      this.participantService.updateForm(this.registerForm.value);
+    }
+
+  }
+
 //C4.5
 }
