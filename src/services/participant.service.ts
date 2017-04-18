@@ -4,7 +4,9 @@ import { Http, Headers, ResponseContentType, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
+import {UniqueCode} from "../app/uniqueCode";
 
+// import { UniqueCode } from 'app/registration/registration.component';
 
 @Injectable()
 export class ParticipantService {
@@ -23,16 +25,16 @@ export class ParticipantService {
   }
 
   getForm(): Observable<Response> {
-    var obj: any = { "uniqueCode":  "DAMSS-swyTo01t" };
-
+    let obj: any = { "uniqueCode": UniqueCode.uniqueCode.toString()  }; // "DAMSS-zztXlY5u"
     let body = JSON.stringify(obj);
     return this.http.post(this.findDataSource, body, { responseType: ResponseContentType.Json })
       .map(function (res: Response) {
         return res.json();
-      })
+      }).catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {
+    UniqueCode.isFound = false;
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }

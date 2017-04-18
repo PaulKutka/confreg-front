@@ -4,20 +4,29 @@ import {ParticipantService} from 'services/participant.service';
 import {CustomValidators} from 'ng2-validation';
 import {UsernameValidator} from '../validators/validationEmail'
 
+import { UniqueCode } from '../uniqueCode';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
   providers: [ParticipantService]
 })
+
+
 export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
   submitAttempt = false;
   submitAccept = false;
 
+  receiveAttempt = false;
+  receivedEditData = false;
+
   constructor(private fb: FormBuilder, private participantService: ParticipantService) {
   }
+
+
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -29,7 +38,7 @@ export class RegistrationComponent implements OnInit {
       institution: ['', Validators.required],
       messageName: ['', Validators.required],
       messageAuthorsAndAffiliations: ['', Validators.required],
-      messageSummary: ['', Validators.compose([Validators.required, UsernameValidator.lengthOver400])],
+      messageSummary: ['', Validators.compose([Validators.required, UsernameValidator.lengthOver400])], //UsernameValidator.lengthOver400
       needsRoom: ['Ne', Validators.required],
       roomType: [''],
       hasEscort: ['Ne', Validators.required],
@@ -40,8 +49,17 @@ export class RegistrationComponent implements OnInit {
   }
 
   onEdit() {
+
+
+    this.receiveAttempt = true;
+    this.receivedEditData = false;
     this.participantService.getForm().subscribe(function (data: any) {
+
+        if (data.educationalDegree.toString() != '') {
+          this.receivedEditData = true;
+        }
         console.log(data);
+
         this.registerForm = this.fb.group({
           educationalDegree: [data.educationalDegree, Validators.required],
           firstName: [data.firstName, Validators.required],
@@ -51,7 +69,7 @@ export class RegistrationComponent implements OnInit {
           institution: [data.institution, Validators.required],
           messageName: [data.messageName, Validators.required],
           messageAuthorsAndAffiliations: [data.messageAuthorsAndAffiliations, Validators.required],
-          messageSummary: [data.messageSummary, Validators.compose([Validators.required, UsernameValidator.lengthOver400])],
+          messageSummary: [data.messageSummary, Validators.compose([Validators.required, UsernameValidator.lengthOver400])], // comented validator
           needsRoom: [data.needsRoom, Validators.required],
           roomType: [data.roomType],
           hasEscort: [data.hasEscort, Validators.required],
@@ -59,18 +77,24 @@ export class RegistrationComponent implements OnInit {
           needsBill: [data.needsBill, Validators.required],
           billInstitution: [data.billInstitution],
         });
-    }.bind(this));
+
+    }.bind(this)); 
+
   }
 
   initSubmit(){
     this.submitAttempt = true;
   }
 
+  onKey(event: any) { // without type info
+    UniqueCode.uniqueCode = event.target.value;
+  }
+
   submitButtonClick(event) {
     if(this.registerForm.valid && this.submitAttempt) {
       console.log(this.registerForm);
       this.participantService.insertParticipant(this.registerForm.value);
-      this.submitAccept = true; 
+      this.submitAccept = true;
     }
   }
 //C4.5
