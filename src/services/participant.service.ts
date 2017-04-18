@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Participant } from 'models/participant';
-import {Http, Headers} from '@angular/http';
+import { Http, Headers, ResponseContentType, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/Rx';
+import {UniqueCode} from "../app/uniqueCode";
 
+// import { UniqueCode } from 'app/registration/registration.component';
 
 @Injectable()
 export class ParticipantService {
   private insertDataSource = "https://confregistration-api.herokuapp.com/post";
+  private findDataSource = "https://confregistration-api.herokuapp.com/find";
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
@@ -19,7 +24,17 @@ export class ParticipantService {
       .catch(this.handleError);
   }
 
+  getForm(): Observable<Response> {
+    let obj: any = { "uniqueCode": UniqueCode.uniqueCode.toString()  }; // "DAMSS-zztXlY5u"
+    let body = JSON.stringify(obj);
+    return this.http.post(this.findDataSource, body, { responseType: ResponseContentType.Json })
+      .map(function (res: Response) {
+        return res.json();
+      }).catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
+    UniqueCode.isFound = false;
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }

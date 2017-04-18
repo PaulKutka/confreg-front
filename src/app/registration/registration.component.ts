@@ -4,7 +4,10 @@ import {ParticipantService} from 'services/participant.service';
 import {CustomValidators} from 'ng2-validation';
 import {UsernameValidator} from '../validators/validationEmail'
 
+
+import { UniqueCode } from '../uniqueCode';
 import {ReCaptchaComponent} from 'angular2-recaptcha/lib/captcha.component';
+
 
 @Component({
   selector: 'app-registration',
@@ -12,6 +15,8 @@ import {ReCaptchaComponent} from 'angular2-recaptcha/lib/captcha.component';
   styleUrls: ['./registration.component.css'],
   providers: [ParticipantService]
 })
+
+
 export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
@@ -29,9 +34,17 @@ export class RegistrationComponent implements OnInit {
       this.token = response.success;
   }
 
+
+  receiveAttempt = false;
+  receivedEditData = false;
+
+
   constructor(private fb: FormBuilder,
               private participantService: ParticipantService) {
+
   }
+
+
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -43,7 +56,7 @@ export class RegistrationComponent implements OnInit {
       institution: ['', Validators.required],
       messageName: ['', Validators.required],
       messageAuthorsAndAffiliations: ['', Validators.required],
-      messageSummary: ['', Validators.compose([Validators.required])], // removed validator
+      messageSummary: ['', Validators.compose([Validators.required, UsernameValidator.lengthOver400])], //UsernameValidator.lengthOver400
       needsRoom: ['Ne', Validators.required],
       roomType: [''],
       hasEscort: ['Ne', Validators.required],
@@ -53,9 +66,47 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
+  onEdit() {
+
+
+    this.receiveAttempt = true;
+    this.receivedEditData = false;
+    this.participantService.getForm().subscribe(function (data: any) {
+
+        if (data.educationalDegree.toString() != '') {
+          this.receivedEditData = true;
+        }
+        console.log(data);
+
+        this.registerForm = this.fb.group({
+          educationalDegree: [data.educationalDegree, Validators.required],
+          firstName: [data.firstName, Validators.required],
+          lastName: [data.lastName, Validators.required],
+          phoneNumber: [data.phoneNumber, Validators.compose([Validators.required, CustomValidators.number])],
+          email: [data.email, Validators.compose([Validators.required, CustomValidators.email])],
+          institution: [data.institution, Validators.required],
+          messageName: [data.messageName, Validators.required],
+          messageAuthorsAndAffiliations: [data.messageAuthorsAndAffiliations, Validators.required],
+          messageSummary: [data.messageSummary, Validators.compose([Validators.required, UsernameValidator.lengthOver400])], // comented validator
+          needsRoom: [data.needsRoom, Validators.required],
+          roomType: [data.roomType],
+          hasEscort: [data.hasEscort, Validators.required],
+          escortWillParticipateInEvents: [data.escortWillParticipateInEvents],
+          needsBill: [data.needsBill, Validators.required],
+          billInstitution: [data.billInstitution],
+        });
+
+    }.bind(this)); 
+
+  }
+
   initSubmit(){
     console.log('Submit Attempt: ' + this.submitAttempt);
     this.submitAttempt = true;
+  }
+
+  onKey(event: any) { // without type info
+    UniqueCode.uniqueCode = event.target.value;
   }
 
   submitButtonClick(event) {
