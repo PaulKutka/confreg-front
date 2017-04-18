@@ -9,7 +9,7 @@ import { Ng2GoogleRecaptchaModule }  from 'ng2-google-recaptcha';
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
