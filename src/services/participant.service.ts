@@ -12,6 +12,8 @@ import {UniqueCode} from "../app/uniqueCode";
 export class ParticipantService {
   private insertDataSource = "https://confregistration-api.herokuapp.com/post";
   private findDataSource = "https://confregistration-api.herokuapp.com/find";
+  private deleteDataSource = "https://confregistration-api.herokuapp.com/delete/";
+  private editDataSource = "https://confregistration-api.herokuapp.com/update/";
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
@@ -31,6 +33,18 @@ export class ParticipantService {
       .map(function (res: Response) {
         return res.json();
       }).catch(this.handleError);
+  }
+
+  deleteParticipant(id: number) {
+    this.http.delete(this.deleteDataSource + id)
+      .catch(this.handleError);
+  }
+
+  editParticipant(id: number, participant: Participant) {
+    let body = JSON.stringify(participant);
+    return this.http.post(this.editDataSource + id, body, {headers: this.headers})
+      .toPromise()
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {
