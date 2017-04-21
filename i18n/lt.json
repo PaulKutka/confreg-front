@@ -60,6 +60,9 @@
   },
   "buttons": {
     "register": "Registruotis"
+  },
+  "messages": {
+    "success": "Sveikiname. Sėkmingai užsiregistravote!"
   }
 
 

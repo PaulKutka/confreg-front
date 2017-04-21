@@ -20,5 +20,4 @@ export class CustomValidator {
   static phone(control: FormControl) {
     return isNumeric(control.value);
   }
-
 }

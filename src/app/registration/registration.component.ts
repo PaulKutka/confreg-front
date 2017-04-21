@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ParticipantService} from '../../services/participant.service';
-import {CustomValidator } from '../validators/validationEmail';
+import {CustomValidator } from '../validators/customValidators';
 
 import { UniqueCode } from '../uniqueCode';
 
@@ -14,10 +14,9 @@ import { UniqueCode } from '../uniqueCode';
 
 export class RegistrationComponent implements OnInit {
 
+  submitted = false;
   registerForm: FormGroup;
-  submitAttempt = false;
-  submitAccept = false;
-
+  //
   receiveAttempt = false;
   receivedEditData = false;
 
@@ -87,5 +86,6 @@ export class RegistrationComponent implements OnInit {
   submitButtonClick(): void {
       console.log(this.registerForm);
       this.participantService.insertParticipant(this.registerForm.value);
+      this.submitted = true;
   }
 }

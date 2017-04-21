@@ -221,10 +221,12 @@
     </fieldset>
 
 
-    <!--<div *ngIf="registerForm.invalid && submitAttempt" class="message error" data-component="message">-->
-      <!--Suveskite duomenis teisingai!  </div>-->
-    <!--<div *ngIf="registerForm.valid && submitAttempt && submitAccept" class="message success" data-component="message">-->
-      <!--Sveikiname. Sėkmingai užsiregistravote! </div>-->
+    <div *ngIf="submitted"
+         class="message success"
+         data-component="message">
+      {{ 'messages.success' | translate}}
+    </div>
+
     <!--<div *ngIf="!receivedEditData && receiveAttempt" class="message error" data-component="message">-->
       <!--Nėra tokio kodo!  </div>-->
 
