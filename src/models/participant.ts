@@ -1,12 +1,12 @@
 export class Participant {
-
-
-    degree: string;
-    firstName: string;
-    lastName: string;
-    phoneNumber: string;
-    email: string;
-    annName: string;
-    annAuthors: string;
-    annSummary: string;
+  constructor(
+    public degree: string,
+    public firstName: string,
+    public lastName: string,
+    public phoneNumber: string,
+    public email: string,
+    public annName: string,
+    public annAuthors: string,
+    public annSummary: string
+  ) { }
 }

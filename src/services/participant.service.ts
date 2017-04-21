@@ -8,15 +8,15 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class ParticipantService {
-  private insertDataSource = "https://confregistration-api.herokuapp.com/post";
-  private findDataSource = "https://confregistration-api.herokuapp.com/find";
+  private insertDataSource = 'https://confregistration-api.herokuapp.com/post';
+  private findDataSource = 'https://confregistration-api.herokuapp.com/find';
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor (private http: Http) { }
 
   insertParticipant(participant: Participant) {
-    let body = JSON.stringify(participant);
+    const body = JSON.stringify(participant);
     return this.http.post(this.insertDataSource, body, {headers: this.headers})
       .toPromise()
       .catch(this.handleError);

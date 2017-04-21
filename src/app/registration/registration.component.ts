@@ -20,21 +20,25 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.buildForm();
+  }
+
+  buildForm(): void {
     this.registerForm = this.fb.group({
-      educationalDegree: ['Daktaras', Validators.required],
+      educationalDegree: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      phoneNumber: ['', Validators.compose([Validators.required, CustomValidators.number])],
-      email: ['', Validators.compose([Validators.required, CustomValidators.email])],
+      phoneNumber: ['', [Validators.required, CustomValidators.number]],
+      email: ['', [Validators.required, CustomValidators.email]],
       institution: ['', Validators.required],
       messageName: ['', Validators.required],
       messageAuthorsAndAffiliations: ['', Validators.required],
-      messageSummary: ['', Validators.compose([Validators.required, UsernameValidator.lengthOver400])],
-      needsRoom: ['Ne', Validators.required],
+      messageSummary: ['', [Validators.required, UsernameValidator.lengthOver400]],
+      needsRoom: ['', Validators.required],
       roomType: [''],
-      hasEscort: ['Ne', Validators.required],
+      hasEscort: ['', Validators.required],
       escortWillParticipateInEvents: [''],
-      needsBill: ['Ne', Validators.required],
+      needsBill: ['', Validators.required],
       billInstitution: [''],
     });
   }
@@ -62,16 +66,8 @@ export class RegistrationComponent implements OnInit {
     }.bind(this));
   }
 
-  initSubmit(){
-    this.submitAttempt = true;
-  }
-
-  submitButtonClick(event) {
-    if(this.registerForm.valid && this.submitAttempt) {
+  submitButtonClick(): void {
       console.log(this.registerForm);
       this.participantService.insertParticipant(this.registerForm.value);
-      this.submitAccept = true; 
-    }
   }
-//C4.5
 }
