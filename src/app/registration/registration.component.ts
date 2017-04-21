@@ -29,6 +29,7 @@ export class RegistrationComponent implements OnInit {
 
   buildForm(): void {
     this.registerForm = this.fb.group({
+      id: [''],
       educationalDegree: ['Daktaras', Validators.required],
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
@@ -37,7 +38,7 @@ export class RegistrationComponent implements OnInit {
       institution: ['', [Validators.required, Validators.minLength(2)]],
       messageName: ['', [Validators.required, Validators.minLength(2)]],
       messageAuthorsAndAffiliations: ['', [Validators.required, Validators.minLength(2)]],
-      messageSummary: ['', [Validators.required, CustomValidator.length400]],
+      messageSummary: ['', [Validators.required]], //CustomValidator.length400
       needsRoom: ['Ne', Validators.required],
       roomType: [''],
       hasEscort: ['Ne', Validators.required],
@@ -47,43 +48,18 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  onEdit() {
-
-
-    this.receiveAttempt = true;
-    this.receivedEditData = false;
-    this.participantService.getForm().subscribe(function (data: any) {
-
-        if (data.educationalDegree.toString() != '') {
-          this.receivedEditData = true;
-        }
-        console.log(data);
-
-        this.registerForm = this.fb.group({
-          educationalDegree: [data.educationalDegree, Validators.required],
-          firstName: [data.firstName, Validators.required],
-          lastName: [data.lastName, Validators.required],
-          phoneNumber: [data.phoneNumber, Validators.compose([Validators.required])],
-          email: [data.email, Validators.compose([Validators.required, CustomValidator.emailRegex])],
-          institution: [data.institution, Validators.required],
-          messageName: [data.messageName, Validators.required],
-          messageAuthorsAndAffiliations: [data.messageAuthorsAndAffiliations, Validators.required],
-          messageSummary: [data.messageSummary, Validators.compose([Validators.required, CustomValidator.length400])],
-          needsRoom: [data.needsRoom, Validators.required],
-          roomType: [data.roomType],
-          hasEscort: [data.hasEscort, Validators.required],
-          escortWillParticipateInEvents: [data.escortWillParticipateInEvents],
-          needsBill: [data.needsBill, Validators.required],
-          billInstitution: [data.billInstitution],
-        });
-    }.bind(this));
+  onEdit(): void {
+    this.participantService.getForm().
+      subscribe( (data: any) => {
+      this.registerForm.setValue(data);
+    });
   }
 
   onKey(event: any) { // without type info
     UniqueCode.uniqueCode = event.target.value;
   }
 
-  submitButtonClick(): void {
+  onSubmit(): void {
       console.log(this.registerForm);
       this.participantService.insertParticipant(this.registerForm.value);
       this.submitted = true;

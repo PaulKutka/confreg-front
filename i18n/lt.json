@@ -62,7 +62,8 @@
     "register": "Registruotis"
   },
   "messages": {
-    "success": "Sveikiname. Sėkmingai užsiregistravote!"
+    "success": "Sveikiname. Sėkmingai užsiregistravote!",
+    "enterMessage": "Įveskite savo gautą kodą.."
   }
 
 
