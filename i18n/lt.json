@@ -1,0 +1,66 @@
+{
+  "legends": {
+    "personal": "Asmenine informacija",
+    "message": "Pranešimo informacija",
+    "extra": "Papildoma informacija"
+  },
+  "validation": {
+    "required" : "Užpildykite teisingai nurodytą lauką",
+    "summary" : "Maksimalus žodžių skaičius - 400"
+  },
+  "educationalDegree": {
+    "label": "Mokslinis laipsnis"
+  },
+  "firstName": {
+    "label": "Vardas",
+    "placeholder": "Įveskite savo vardą.."
+  },
+  "lastName": {
+    "label": "Pavardė",
+    "placeholder": "Įveskite savo pavardę.."
+  },
+  "phoneNumber": {
+    "label": "Telefono numeris",
+    "placeholder": "Įveskite savo telefono numerį.."
+  },
+  "email": {
+    "label": "Elektroninis paštas",
+    "placeholder": "Įveskite savo elektroninį paštą.."
+  },
+  "institution": {
+    "label": "Atstovaujama institucija",
+    "placeholder" : "Įveskite atstovaujamą instituciją.."
+  },
+  "messageName": {
+    "label" : "Pranešimo pavadinimas",
+    "placeholder" : "Įveskite savo projekto pavadinimą.."
+  },
+  "messageAuthorsAndAffiliation": {
+    "label": "Pranešimo autoriai",
+    "placeholder": "Įveskite savo projekto autorius.."
+  },
+  "messageSummary": {
+    "label": "Pranešimo santrauka",
+    "placeholder": "Įveskite savo projekto santrauka..",
+    "description": "Maksimalus žodžių skaičius - 400"
+  },
+  "extraInformation": {
+    "hotel": {
+      "mainQuestion": "Ar reikalingas viešbučio kambarys?",
+      "extraQuestion": "Viešbučio tipas"
+    },
+    "escort": {
+      "mainQuestion": "Ar bus lydinčių žmonių?",
+      "extraQuestion": "Ar dalyvaus papildomuose renginiuose?"
+    },
+    "bill": {
+      "mainQuestion": "Ar reikalinga išankstinė sąskaitos faktūra dalyvio mokesčiui apmokėti?",
+      "extraQuestion": "Nurodykite institucijos pavadinimą"
+    }
+  },
+  "buttons": {
+    "register": "Registruotis"
+  }
+
+
+}

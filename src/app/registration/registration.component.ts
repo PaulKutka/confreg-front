@@ -32,7 +32,7 @@ export class RegistrationComponent implements OnInit {
 
   buildForm(): void {
     this.registerForm = this.fb.group({
-      educationalDegree: ['', Validators.required],
+      educationalDegree: ['Daktaras', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       phoneNumber: ['', [Validators.required, CustomValidators.number]],
@@ -41,11 +41,11 @@ export class RegistrationComponent implements OnInit {
       messageName: ['', Validators.required],
       messageAuthorsAndAffiliations: ['', Validators.required],
       messageSummary: ['', [Validators.required, UsernameValidator.lengthOver400]],
-      needsRoom: ['', Validators.required],
+      needsRoom: ['Ne', Validators.required],
       roomType: [''],
-      hasEscort: ['', Validators.required],
+      hasEscort: ['Ne', Validators.required],
       escortWillParticipateInEvents: [''],
-      needsBill: ['', Validators.required],
+      needsBill: ['Ne', Validators.required],
       billInstitution: [''],
     });
   }

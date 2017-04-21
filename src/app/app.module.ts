@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
+import {TranslateModule} from 'ng2-translate';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RegistrationComponent } from './registration/registration.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    TranslateModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

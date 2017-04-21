@@ -1,10 +1,13 @@
 <div id="kube-component" class="content">
   <form novalidate class="form" [formGroup]="registerForm" (ngSubmit)="submitButtonClick($event)">
     <fieldset>
-      <legend>Asmenine informacija</legend>
-      <!--PRASIDEDA LAIPSNIS-->
+      <legend>{{ 'legends.personal' | translate }}</legend>
+
+      {{registerForm.get('educationalDegree').valid}}
       <div class="form-item">
-        <label>Mokslinis laipsnis<span class="req">*</span></label>
+        <label> {{ 'educationalDegree.label' | translate }}
+          <span class="req">*</span>
+        </label>
         <select formControlName="educationalDegree" class="w50">
           <option value="Daktaras" [selected]="true" >Daktaras</option>
           <option value="Profesorius">Profesorius</option>
@@ -12,76 +15,86 @@
         </select>
       </div>
 
+      {{registerForm.get('firstName').valid}}
       <div class="form-item">
-        <label>Vardas
+        <label> {{ 'firstName.label' | translate }}
+          <span class="req">*</span>
           <span *ngIf="registerForm.get('firstName').invalid && registerForm.get('firstName').touched" class="error">
-            Užpildykite teisingai lauką
+            {{ 'validation.required' | translate}}
           </span>
         </label>
         <input type="text"
                name="firstName"
                class="w50"
-               placeholder="Įveskite savo vardą.."
+               placeholder="{{ 'firstName.placeholder' | translate}}"
                formControlName="firstName"
                [ngClass]="{'error' : registerForm.get('firstName').invalid && registerForm.get('firstName').touched }"
                required>
       </div>
 
+      {{registerForm.get('lastName').valid}}
       <div class="form-item">
-        <label>Pavardė
+        <label> {{ 'lastName.label' | translate}}
+          <span class="req">*</span>
           <span *ngIf="registerForm.get('lastName').invalid && registerForm.get('lastName').touched" class="error">
-            Užpildykite teisingai lauką
+            {{ 'validation.required' | translate}}
           </span>
         </label>
         <input type="text"
                name="lastName"
                class="w50"
-               placeholder="Įveskite savo pavardę.."
+               placeholder="{{ 'lastName.placeholder' | translate}}"
                formControlName="lastName"
                [ngClass]="{'error': registerForm.get('lastName').invalid && registerForm.get('lastName').touched}"
                required>
       </div>
 
+      {{registerForm.get('phoneNumber').valid}}
       <div class="form-item">
-        <label>Telefono numeris
+        <label>{{ 'phoneNumber.label' | translate}}
+          <span class="req">*</span>
           <span *ngIf="registerForm.get('phoneNumber').invalid && registerForm.get('phoneNumber').touched" class="error">
-            Užpildykite teisingai lauką
+            {{ 'validation.required' | translate}}
           </span>
         </label>
         <input type="tel"
                name="phoneNumber"
                class="w50"
-               placeholder="Įveskite savo telefono numerį.."
+               placeholder="{{ 'phoneNumber.placeholder' | translate}}"
                formControlName="phoneNumber"
                [ngClass]="{'error' : registerForm.get('phoneNumber').invalid && registerForm.get('phoneNumber').touched}"
                required>
       </div>
 
+      {{registerForm.get('email').valid}}
       <div class="form-item">
-        <label>Elektroninis pastas
+        <label>{{ 'email.label' | translate}}
+          <span class="req">*</span>
           <span *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched" class="error">
-            Užpildykite teisingai lauką
+            {{ 'validation.required' | translate}}
           </span>
         </label>
         <input type="email"
                name="email"
                class="w50"
-               placeholder="Įveskite savo elektroninį paštą.."
+               placeholder="{{ 'email.placeholder' | translate}}"
                formControlName="email"
                [ngClass]="{'error' : registerForm.get('email').invalid && registerForm.get('email').touched}"
                required>
       </div>
 
+      {{registerForm.get('institution').valid}}
       <div class="form-item">
-        <label>Atstovaujama institucija
+        <label>{{ 'institution.label' | translate}}
+          <span class="req">*</span>
           <span *ngIf="registerForm.get('institution').invalid && registerForm.get('institution').touched" class="error">
-          Užpildykite teisingai lauką
+          {{ 'validation.required' | translate}}
           </span>
         </label>
         <input type="text"
                name="institution"
                class="w50"
-               placeholder="Įveskite atstovaujamą instituciją.."
+               placeholder="{{ 'institution.placeholder' | translate}}"
                formControlName="institution"
                [ngClass]="{'error' : registerForm.get('institution').invalid && registerForm.get('institution').touched}"
                required>
@@ -90,33 +103,37 @@
 
 
     <fieldset>
-      <legend>Pranesimo informacija</legend>
+      <legend>{{ 'legends.message' | translate }}</legend>
 
+      {{registerForm.get('messageName').valid}}
       <div class="form-item">
-        <label>Pranesimo pavadinimas
+        <label>{{ 'messageName.label' | translate}}
+          <span class="req">*</span>
           <span *ngIf="registerForm.get('messageName').invalid && registerForm.get('messageName').touched" class="error">
-          Užpildykite teisingai lauką
+          {{ 'validation.required' | translate}}
           </span>
         </label>
         <input type="text"
                name="messageName"
                class="w50"
-               placeholder="Įveskite savo projekto pavadinimą.."
+               placeholder="{{ 'messageName.placeholder' | translate}}"
                formControlName="messageName"
                [ngClass]="{'error' : registerForm.get('messageName').invalid && registerForm.get('messageName').touched}"
                required>
       </div>
-      <!--BAIGIASI PRANESIMO PAVADINIMAS-->
-      <!--PRASIDEDA PRANESIMO AUTORIAI-->
+
+      {{registerForm.get('messageAuthorsAndAffiliations').valid}}
       <div class="form-item">
-        <label>Pranesimo autoriai
-          <span *ngIf="registerForm.get('messageAuthorsAndAffiliations').invalid && registerForm.get('messageAuthorsAndAffiliations').touched" class="error">
-          Užpildykite teisingai lauką
+        <label>{{ 'messageAuthorsAndAffiliation.label' | translate}}
+          <span class="req">*</span>
+          <span *ngIf="registerForm.get('messageAuthorsAndAffiliations').invalid
+          && registerForm.get('messageAuthorsAndAffiliations').touched" class="error">
+          {{ 'validation.required' | translate}}
           </span>
         </label>
         <textarea rows="6"
                   name="messageAuthorsAndAffiliations"
-                  placeholder="Įveskite savo projekto autorius.."
+                  placeholder="{{ 'messageAuthorsAndAffiliation.placeholder' | translate}}"
                   formControlName="messageAuthorsAndAffiliations"
                   [ngClass]="{'error' : registerForm.get('messageAuthorsAndAffiliations').invalid
                   && registerForm.get('messageAuthorsAndAffiliations').touched}"
@@ -124,15 +141,18 @@
         </textarea>
       </div>
 
+      {{registerForm.get('messageSummary').valid}}
       <div class="form-item">
-        <label>Pranesimo santrauka
+        <label>{{ 'messageSummary.label' | translate}}
+          <span class="req">*</span>
+          <span class="desc">{{ 'messageSummary.description' | translate}}</span>
           <span *ngIf="registerForm.get('messageSummary').invalid && registerForm.get('messageSummary').touched" class="error">
-          Užpildykite teisingai lauką - min. 400 zodziu
+          {{ 'validation.required'  | translate}}
           </span>
         </label>
         <textarea rows="6"
                   name="messageSummary"
-                  placeholder="Įveskite savo projekto santrauka.."
+                  placeholder="{{ 'messageSummary.placeholder' | translate}}"
                   formControlName="messageSummary"
                   [ngClass]="{error: registerForm.get('messageSummary').invalid && registerForm.get('messageSummary').touched }"
                   required>
@@ -142,49 +162,49 @@
 
 
     <fieldset>
-      <legend>Papildoma informacija</legend>
+      <legend>{{ 'legends.extra' | translate }}</legend>
 
-      <!--PRASIDEDA VIESBUCIO KLAUSIMAS-->
+      {{registerForm.get('needsRoom').valid}}
       <div class="form-item">
-        <p>Ar reikalingas viesbucio kambarys?</p>
+        <p>{{ 'extraInformation.hotel.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
           <label class="checkbox"><input type="radio" name="needsRoom" formControlName="needsRoom" value="Taip">Taip</label>
           <label class="checkbox"><input  type="radio" name="needsRoom" formControlName="needsRoom" value="Ne"
                                          [checked]="true">Ne</label>
         </div>
       </div>
-      <div *ngIf="registerForm.get('needsRoom').value.toString() == 'Taip'" class="form-item extraHotel">
-        <label>Viesbucio tipas</label>
+      <div *ngIf="registerForm.get('needsRoom').value == 'Taip'"
+           class="form-item">
+        <label>{{ 'extraInformation.hotel.extraQuestion' | translate}}</label>
         <select formControlName="roomType" class="w50">
           <option value="Vienvietis" [selected]="true">Vienvietis</option>
           <option value="Dvivietis">Dvivietis</option>
           <option value="Kitas">Kitas</option>
         </select>
       </div>
-      <!--BAIGIASI PRANESIMO PAVADINIMAS-->
 
-      <!--PRASIDEDA PAPILDOMO ASMENS KLAUSIMAS-->
+      {{registerForm.get('hasEscort').valid}}
       <div class="form-item">
-        <p>Ar bus lydinciu zmoniu?</p>
+        <p>{{ 'extraInformation.escort.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
-
           <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Taip">Taip</label>
           <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Ne"
                                          [checked]="true">Ne</label>
         </div>
       </div>
-      <div *ngIf="registerForm.get('hasEscort').value.toString() == 'Taip'" class="form-item extraPerson">
-        <label>Ar dalyvaus papildomuose renginiuose?</label>
+
+      <div *ngIf="registerForm.get('hasEscort').value == 'Taip'"
+           class="form-item">
+        <label>{{ 'extraInformation.escort.extraQuestion' | translate}}</label>
         <select formControlName="escortWillParticipateInEvents" class="w50">
           <option value="Taip" [selected]="true">Taip</option>
           <option value="Ne">Ne</option>
         </select>
       </div>
-      <!--BAIGIASI PAPILDOMO ASMENS KLAUSIMAS-->
 
-      <!--PRASIDEDA PAPILDOMAS INSTITUCIJOS KLAUSIMAS-->
+      {{registerForm.get('needsBill').valid}}
       <div class="form-item ">
-        <p>Ar reikalinga išankstinė sąskaitos faktūra dalyvio mokesčiui apmokėti?</p>
+        <p>{{ 'extraInformation.bill.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
           <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
                                          value="Taip" >Taip</label>
@@ -192,13 +212,12 @@
                                          value="Ne" [checked]="true"  >Ne</label>
         </div>
       </div>
-      <div *ngIf="registerForm.get('needsBill').value.toString() == 'Taip'"  class="form-item extraPayForPerson">
-        <label>Institucijos pavadinimas</label>
+      <div *ngIf="registerForm.get('needsBill').value.toString() == 'Taip'"
+           class="form-item ">
+        <label>{{ 'extraInformation.bill.extraQuestion' | translate}}</label>
         <input type="text" name="billInstitution" class="w50"
                formControlName="billInstitution">
       </div>
-      <!--BAIGIASI
-      </div> PAPILDOMAS INSTITUCIJOS KLAUSIMAS-->
     </fieldset>
 
 
@@ -213,15 +232,19 @@
     <div class="row gutters">
       <div class="col col-6">
         <div class="form-item">
-          <button class="button red" type="submit" (click)="initSubmit()">Registruotis</button>
+          <button type="submit"
+                  class="button red"
+                  [disabled]="registerForm.invalid">
+            {{ 'buttons.register' | translate}}
+          </button>
         </div>
       </div>
       <div class="col col-6">
         <div class="form-item">
-          <div class="append">
-            <input type="text"  (keyup)="onKey($event)" placeholder="Įveskite savo gautą kodą..">
-            <button class="button red outline" (click)="onEdit()"><i class="kube-search"></i> Redaguoti formą</button>
-          </div>
+          <!--<div class="append">-->
+            <!--<input type="text"  (keyup)="onKey($event)" placeholder="Įveskite savo gautą kodą..">-->
+            <!--<button class="button red outline" (click)="onEdit()"><i class="kube-search"></i> Redaguoti formą</button>-->
+          <!--</div>-->
         </div>
       </div>
     </div>
