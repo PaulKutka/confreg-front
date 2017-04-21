@@ -9,7 +9,7 @@
           <span class="req">*</span>
         </label>
         <select formControlName="educationalDegree" class="w50">
-          <option value="Daktaras" [selected]="true" >Daktaras</option>
+          <option value="Daktaras" >Daktaras</option>
           <option value="Profesorius">Profesorius</option>
           <option value="Be laipsnio">Be laipsnio</option>
         </select>
@@ -169,15 +169,14 @@
         <p>{{ 'extraInformation.hotel.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
           <label class="checkbox"><input type="radio" name="needsRoom" formControlName="needsRoom" value="Taip">Taip</label>
-          <label class="checkbox"><input  type="radio" name="needsRoom" formControlName="needsRoom" value="Ne"
-                                         [checked]="true">Ne</label>
+          <label class="checkbox"><input  type="radio" name="needsRoom" formControlName="needsRoom" value="Ne">Ne</label>
         </div>
       </div>
       <div *ngIf="registerForm.get('needsRoom').value == 'Taip'"
            class="form-item">
         <label>{{ 'extraInformation.hotel.extraQuestion' | translate}}</label>
         <select formControlName="roomType" class="w50">
-          <option value="Vienvietis" [selected]="true">Vienvietis</option>
+          <option value="Vienvietis">Vienvietis</option>
           <option value="Dvivietis">Dvivietis</option>
           <option value="Kitas">Kitas</option>
         </select>
@@ -188,8 +187,7 @@
         <p>{{ 'extraInformation.escort.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
           <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Taip">Taip</label>
-          <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Ne"
-                                         [checked]="true">Ne</label>
+          <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Ne">Ne</label>
         </div>
       </div>
 
@@ -197,7 +195,7 @@
            class="form-item">
         <label>{{ 'extraInformation.escort.extraQuestion' | translate}}</label>
         <select formControlName="escortWillParticipateInEvents" class="w50">
-          <option value="Taip" [selected]="true">Taip</option>
+          <option value="Taip">Taip</option>
           <option value="Ne">Ne</option>
         </select>
       </div>
@@ -209,7 +207,7 @@
           <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
                                          value="Taip" >Taip</label>
           <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
-                                         value="Ne" [checked]="true"  >Ne</label>
+                                         value="Ne">Ne</label>
         </div>
       </div>
       <div *ngIf="registerForm.get('needsBill').value == 'Taip'"
@@ -227,26 +225,61 @@
       {{ 'messages.success' | translate}}
     </div>
 
-    <!--<div *ngIf="!receivedEditData && receiveAttempt" class="message error" data-component="message">-->
-      <!--Nėra tokio kodo!  </div>-->
+    <div *ngIf="!received && pressedReceive"
+         class="message error"
+         data-component="message">
+      {{ 'messages.noCode' | translate}}
+    </div>
 
-    <!--REGISTRACIJOS MYGTUKAS-->
+    <div *ngIf="deleted"
+         class="message success"
+         data-component="message">
+      {{ 'messages.deleted' | translate}}
+    </div>
+
+    <div *ngIf="edited"
+         class="message success"
+         data-component="message">
+      {{ 'messages.edited' | translate}}
+    </div>
+
+
+
     <div class="row gutters">
       <div class="col col-6">
         <div class="form-item">
-          <button type="submit"
-                  class="button red"
-                  [disabled]="registerForm.invalid">
+          <button *ngIf="!received"
+                  type="submit"
+                  class="button"
+                  [disabled]="registerForm.invalid || received">
             {{ 'buttons.register' | translate}}
           </button>
+          <div *ngIf="received">
+            <button type="button"
+                    class="button"
+                    (click)="onEdit()"
+                    [disabled]="!received || registerForm.invalid">
+              {{ 'buttons.edit' | translate}}
+            </button>
+            <button type="button"
+                    class="button"
+                    (click)="onDelete()"
+                    [disabled]="!received">
+              {{ 'buttons.delete' | translate}}
+            </button>
+          </div>
         </div>
       </div>
       <div class="col col-6">
         <div class="form-item">
           <div class="append">
-            <input type="text"  (keyup)="onKey($event)" placeholder="{{ 'messages.enterMessage' | translate}}">
-            <button class="button outline"
-                    (click)="onEdit()">
+            <input type="text"
+                   (keyup)="onKey($event)"
+                   placeholder="{{ 'messages.enterMessage' | translate}}"
+            >
+            <button type="button"
+                    class="button outline"
+                    (click)="onReceive()">
               <i class="kube-search"></i>
               Redaguoti formą
             </button>

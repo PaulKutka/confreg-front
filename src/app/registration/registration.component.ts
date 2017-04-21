@@ -15,12 +15,17 @@ import { UniqueCode } from '../uniqueCode';
 export class RegistrationComponent implements OnInit {
 
   submitted = false;
-  registerForm: FormGroup;
-  //
-  receiveAttempt = false;
-  receivedEditData = false;
 
-  constructor(private fb: FormBuilder, private participantService: ParticipantService) {
+  received = false;
+  pressedReceive = false;
+
+  edited = false;
+  deleted = false;
+  registerForm: FormGroup;
+
+
+  constructor(private fb: FormBuilder,
+              private participantService: ParticipantService) {
   }
 
   ngOnInit() {
@@ -30,7 +35,7 @@ export class RegistrationComponent implements OnInit {
   buildForm(): void {
     this.registerForm = this.fb.group({
       id: [''],
-      educationalDegree: ['Daktaras', Validators.required],
+      educationalDegree: ['', Validators.required],
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       phoneNumber: ['', [Validators.required, Validators.minLength(2), CustomValidator.phone]],
@@ -39,29 +44,62 @@ export class RegistrationComponent implements OnInit {
       messageName: ['', [Validators.required, Validators.minLength(2)]],
       messageAuthorsAndAffiliations: ['', [Validators.required, Validators.minLength(2)]],
       messageSummary: ['', [Validators.required]], //CustomValidator.length400
-      needsRoom: ['Ne', Validators.required],
+      needsRoom: ['', Validators.required],
       roomType: [''],
-      hasEscort: ['Ne', Validators.required],
+      hasEscort: ['', Validators.required],
       escortWillParticipateInEvents: [''],
-      needsBill: ['Ne', Validators.required],
+      needsBill: ['', Validators.required],
       billInstitution: [''],
     });
   }
 
-  onEdit(): void {
+  onReceive(): void {
     this.participantService.getForm().
       subscribe( (data: any) => {
       this.registerForm.setValue(data);
+      this.received = true;
     });
+    this.pressedReceive = true;
+    // previous parameters
+    this.deleted = false;
+    this.submitted = false;
   }
 
-  onKey(event: any) { // without type info
+  onEdit(): void {
+    const id = this.registerForm.get('id').value;
+    // this.participantService.editParticipant(id, this.registerForm.value);
+    this.edited = true;
+
+    // previous parameters
+    this.deleted = false;
+  }
+
+  onDelete(): void {
+    const id = this.registerForm.get('id').value;
+    // this.participantService.deleteParticipant(id);
+    this.registerForm.reset();
+    this.deleted = true;
+
+    // previous parameters
+    this.edited = false;
+    this.pressedReceive = false;
+    this.received = false;
+  }
+
+
+  onKey(event: any): void { // without type info
     UniqueCode.uniqueCode = event.target.value;
   }
 
   onSubmit(): void {
       console.log(this.registerForm);
-      this.participantService.insertParticipant(this.registerForm.value);
-      this.submitted = true;
+      if (this.registerForm.valid && this.registerForm.touched) {
+        this.participantService.insertParticipant(this.registerForm.value);
+        this.registerForm.reset();
+
+        //previous parameters
+        this.submitted = true;
+        this.deleted = false;
+      }
   }
 }

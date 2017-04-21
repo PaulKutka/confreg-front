@@ -59,11 +59,16 @@
     }
   },
   "buttons": {
-    "register": "Registruotis"
+    "register": "Registruotis",
+    "edit": "Redaguoti",
+    "delete": "Ištrinti jūsų formą"
   },
   "messages": {
     "success": "Sveikiname. Sėkmingai užsiregistravote!",
-    "enterMessage": "Įveskite savo gautą kodą.."
+    "enterMessage": "Įveskite savo gautą kodą..",
+    "noCode": "Nėra tokio kodo!",
+    "edited": "Forma redaguota.",
+    "deleted": "Forma ištrinta."
   }
 
 
