@@ -12,7 +12,9 @@ import {UniqueCode} from "../app/uniqueCode";
 export class ParticipantService {
   private insertDataSource = "https://confregistration-api.herokuapp.com/post";
   private findDataSource = "https://confregistration-api.herokuapp.com/find";
-  private updateDataSource = "https://confregistration-api.herokuapp.com/update/" + UniqueCode.userId;
+  private deleteDataSource = "https://confregistration-api.herokuapp.com/delete/";
+  private editDataSource = "https://confregistration-api.herokuapp.com/update/";
+
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
@@ -34,14 +36,15 @@ export class ParticipantService {
       }).catch(this.handleError);
   }
 
-  updateForm(participant) {
-    let body = JSON.stringify(participant);
-    console.log(body  + " | " + UniqueCode.userId);
-    return this.http.put(this.updateDataSource, body, {headers: this.headers})
-      .toPromise()
+
+  deleteParticipant(id: number) {
+    this.http.delete(this.deleteDataSource + id)
       .catch(this.handleError);
   }
 
+  editParticipant(id: number, participant: Participant) {
+    let body = JSON.stringify(participant);
+    return this.http.post(this.editDataSource + id, body, {headers: this.headers})
 
 
   private handleError(error: any): Promise<any> {
