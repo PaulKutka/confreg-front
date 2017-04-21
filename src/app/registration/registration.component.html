@@ -169,7 +169,8 @@
         <p>{{ 'extraInformation.hotel.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
           <label class="checkbox"><input type="radio" name="needsRoom" formControlName="needsRoom" value="Taip">Taip</label>
-          <label class="checkbox"><input  type="radio" name="needsRoom" formControlName="needsRoom" value="Ne">Ne</label>
+          <label class="checkbox"><input  type="radio" name="needsRoom" formControlName="needsRoom" value="Ne"
+                                          (click)="clearHotelExtraData()">Ne</label>
         </div>
       </div>
       <div *ngIf="registerForm.get('needsRoom').value == 'Taip'"
@@ -187,7 +188,8 @@
         <p>{{ 'extraInformation.escort.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
           <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Taip">Taip</label>
-          <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Ne">Ne</label>
+          <label class="checkbox"><input type="radio" name="hasEscort" formControlName="hasEscort" value="Ne"
+                                         (click)="clearEscortExtraData()">Ne</label>
         </div>
       </div>
 
@@ -204,10 +206,9 @@
       <div class="form-item ">
         <p>{{ 'extraInformation.bill.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
-          <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
-                                         value="Taip" >Taip</label>
-          <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill"
-                                         value="Ne">Ne</label>
+          <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill" value="Taip">Taip</label>
+          <label class="checkbox"><input type="radio" name="needsBill" formControlName="needsBill" value="Ne"
+                                         (click)="clearBillExtraData()">Ne</label>
         </div>
       </div>
       <div *ngIf="registerForm.get('needsBill').value == 'Taip'"

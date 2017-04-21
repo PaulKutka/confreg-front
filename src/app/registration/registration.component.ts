@@ -97,9 +97,19 @@ export class RegistrationComponent implements OnInit {
         this.participantService.insertParticipant(this.registerForm.value);
         this.registerForm.reset();
 
-        //previous parameters
+        // previous parameters
         this.submitted = true;
         this.deleted = false;
       }
+  }
+
+  clearBillExtraData(): void {
+    this.registerForm.get('billInstitution').setValue('');
+  }
+  clearHotelExtraData(): void {
+    this.registerForm.get('roomType').setValue('');
+  }
+  clearEscortExtraData(): void {
+    this.registerForm.get('escortWillParticipateInEvents').setValue('');
   }
 }
