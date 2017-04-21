@@ -43,7 +43,7 @@ export class RegistrationComponent implements OnInit {
       institution: ['', [Validators.required, Validators.minLength(2)]],
       messageName: ['', [Validators.required, Validators.minLength(2)]],
       messageAuthorsAndAffiliations: ['', [Validators.required, Validators.minLength(2)]],
-      messageSummary: ['', [Validators.required]], //CustomValidator.length400
+      messageSummary: ['', [Validators.required, CustomValidator.length400]],
       needsRoom: ['', Validators.required],
       roomType: [''],
       hasEscort: ['', Validators.required],

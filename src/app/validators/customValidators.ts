@@ -3,6 +3,9 @@ import {isNumeric} from 'rxjs/util/isNumeric';
 
 export class CustomValidator {
   static length400(control: FormControl) {
+    if (control.value == null) {
+      return null;
+    }
     const wordArray = control.value.split(' ');
     if (wordArray.length >= 400) {
       return {lengthOver400: true };

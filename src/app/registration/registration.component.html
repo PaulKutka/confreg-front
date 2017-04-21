@@ -3,7 +3,6 @@
     <fieldset>
       <legend>{{ 'legends.personal' | translate }}</legend>
 
-      {{registerForm.get('educationalDegree').valid}}
       <div class="form-item">
         <label> {{ 'educationalDegree.label' | translate }}
           <span class="req">*</span>
@@ -15,7 +14,6 @@
         </select>
       </div>
 
-      {{registerForm.get('firstName').valid}}
       <div class="form-item">
         <label> {{ 'firstName.label' | translate }}
           <span class="req">*</span>
@@ -32,7 +30,6 @@
                required>
       </div>
 
-      {{registerForm.get('lastName').valid}}
       <div class="form-item">
         <label> {{ 'lastName.label' | translate}}
           <span class="req">*</span>
@@ -49,7 +46,6 @@
                required>
       </div>
 
-      {{registerForm.get('phoneNumber').valid}}
       <div class="form-item">
         <label>{{ 'phoneNumber.label' | translate}}
           <span class="req">*</span>
@@ -66,7 +62,6 @@
                required>
       </div>
 
-      {{registerForm.get('email').valid}}
       <div class="form-item">
         <label>{{ 'email.label' | translate}}
           <span class="req">*</span>
@@ -83,7 +78,6 @@
                required>
       </div>
 
-      {{registerForm.get('institution').valid}}
       <div class="form-item">
         <label>{{ 'institution.label' | translate}}
           <span class="req">*</span>
@@ -105,7 +99,6 @@
     <fieldset>
       <legend>{{ 'legends.message' | translate }}</legend>
 
-      {{registerForm.get('messageName').valid}}
       <div class="form-item">
         <label>{{ 'messageName.label' | translate}}
           <span class="req">*</span>
@@ -122,7 +115,6 @@
                required>
       </div>
 
-      {{registerForm.get('messageAuthorsAndAffiliations').valid}}
       <div class="form-item">
         <label>{{ 'messageAuthorsAndAffiliation.label' | translate}}
           <span class="req">*</span>
@@ -141,7 +133,6 @@
         </textarea>
       </div>
 
-      {{registerForm.get('messageSummary').valid}}
       <div class="form-item">
         <label>{{ 'messageSummary.label' | translate}}
           <span class="req">*</span>
@@ -164,7 +155,6 @@
     <fieldset>
       <legend>{{ 'legends.extra' | translate }}</legend>
 
-      {{registerForm.get('needsRoom').valid}}
       <div class="form-item">
         <p>{{ 'extraInformation.hotel.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
@@ -183,7 +173,6 @@
         </select>
       </div>
 
-      {{registerForm.get('hasEscort').valid}}
       <div class="form-item">
         <p>{{ 'extraInformation.escort.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
@@ -202,7 +191,6 @@
         </select>
       </div>
 
-      {{registerForm.get('needsBill').valid}}
       <div class="form-item ">
         <p>{{ 'extraInformation.bill.mainQuestion' | translate}}</p>
         <div class="form-item form-checkboxes">
@@ -288,10 +276,6 @@
         </div>
       </div>
     </div>
-
-
   </form>
 </div>
-
-<!--[disabled]="registerForm.invalid"-->
 
