@@ -4,17 +4,24 @@ import {ParticipantService} from 'services/participant.service';
 import {CustomValidators} from 'ng2-validation';
 import {UsernameValidator} from '../validators/validationEmail'
 
+import { UniqueCode } from '../uniqueCode';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
   providers: [ParticipantService]
 })
+
+
 export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
   submitAttempt = false;
   submitAccept = false;
+
+  receiveAttempt = false;
+  receivedEditData = false;
 
   constructor(private fb: FormBuilder, private participantService: ParticipantService) {
   }
@@ -44,8 +51,17 @@ export class RegistrationComponent implements OnInit {
   }
 
   onEdit() {
+
+
+    this.receiveAttempt = true;
+    this.receivedEditData = false;
     this.participantService.getForm().subscribe(function (data: any) {
+
+        if (data.educationalDegree.toString() != '') {
+          this.receivedEditData = true;
+        }
         console.log(data);
+
         this.registerForm = this.fb.group({
           educationalDegree: [data.educationalDegree, Validators.required],
           firstName: [data.firstName, Validators.required],
@@ -64,6 +80,10 @@ export class RegistrationComponent implements OnInit {
           billInstitution: [data.billInstitution],
         });
     }.bind(this));
+  }
+
+  onKey(event: any) { // without type info
+    UniqueCode.uniqueCode = event.target.value;
   }
 
   submitButtonClick(): void {
