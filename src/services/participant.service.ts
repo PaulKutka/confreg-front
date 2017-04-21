@@ -15,6 +15,7 @@ export class ParticipantService {
   private deleteDataSource = "https://confregistration-api.herokuapp.com/delete/";
   private editDataSource = "https://confregistration-api.herokuapp.com/update/";
 
+
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor (private http: Http) { }
@@ -35,6 +36,7 @@ export class ParticipantService {
       }).catch(this.handleError);
   }
 
+
   deleteParticipant(id: number) {
     this.http.delete(this.deleteDataSource + id)
       .catch(this.handleError);
@@ -43,12 +45,9 @@ export class ParticipantService {
   editParticipant(id: number, participant: Participant) {
     let body = JSON.stringify(participant);
     return this.http.post(this.editDataSource + id, body, {headers: this.headers})
-      .toPromise()
-      .catch(this.handleError);
-  }
+
 
   private handleError(error: any): Promise<any> {
-    UniqueCode.isFound = false;
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }

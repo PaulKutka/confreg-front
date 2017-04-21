@@ -1,10 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ParticipantService} from 'services/participant.service';
 import {CustomValidators} from 'ng2-validation';
 import {UsernameValidator} from '../validators/validationEmail'
 
+
 import { UniqueCode } from '../uniqueCode';
+import {ReCaptchaComponent} from 'angular2-recaptcha/lib/captcha.component';
+
 
 @Component({
   selector: 'app-registration',
@@ -16,17 +19,26 @@ import { UniqueCode } from '../uniqueCode';
 
 export class RegistrationComponent implements OnInit {
 
+  private recaptchaSiteKey = '6Lf_RR0UAAAAAFnJLZEkeXmvNK6yUqFW-3V8DAsD';
+
   registerForm: FormGroup;
   submitAttempt = false;
   submitAccept = false;
 
+
+  token = false;
   receiveAttempt = false;
   receivedEditData = false;
-
-  constructor(private fb: FormBuilder, private participantService: ParticipantService) {
+  private onCaptchaComplete(response: any) {
+    if(response.success)
+      this.token = response.success;
   }
 
 
+  constructor(private fb: FormBuilder,
+              private participantService: ParticipantService) {
+
+  }
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -49,16 +61,15 @@ export class RegistrationComponent implements OnInit {
   }
 
   onEdit() {
-
-
     this.receiveAttempt = true;
     this.receivedEditData = false;
     this.participantService.getForm().subscribe(function (data: any) {
 
-        if (data.educationalDegree.toString() != '') {
+        if (data.id.toString() != '') {
+          UniqueCode.userId = data.id;
           this.receivedEditData = true;
         }
-        console.log(data);
+        // console.log(data);
 
         this.registerForm = this.fb.group({
           educationalDegree: [data.educationalDegree, Validators.required],
@@ -78,11 +89,11 @@ export class RegistrationComponent implements OnInit {
           billInstitution: [data.billInstitution],
         });
 
-    }.bind(this)); 
-
+    }.bind(this));
   }
 
   initSubmit(){
+    console.log('Submit Attempt: ' + this.submitAttempt);
     this.submitAttempt = true;
   }
 
@@ -91,11 +102,18 @@ export class RegistrationComponent implements OnInit {
   }
 
   submitButtonClick(event) {
-    if(this.registerForm.valid && this.submitAttempt) {
-      console.log(this.registerForm);
+    if(this.registerForm.valid && this.submitAttempt && this.token ) {
       this.participantService.insertParticipant(this.registerForm.value);
       this.submitAccept = true;
     }
   }
+
+  updateForm(event) {
+    if(this.registerForm.valid) {
+      this.participantService.updateForm(this.registerForm.value);
+    }
+
+  }
+
 //C4.5
 }

@@ -124,7 +124,7 @@
         registerForm.get('messageSummary').hasError('lengthOver400'))
         && registerForm.get('messageSummary').touched || (
          submitAttempt && !registerForm.get('messageSummary').touched) }">
-          Užpildykite teisingai lauką - min. 400 zodziu </span></label>
+          Užpildykite teisingai lauką - max. 400 zodziu </span></label>
         <textarea rows="6" name="messageSummary" placeholder="Įveskite savo projekto santrauka.."
                   formControlName="messageSummary" [ngClass]="{error: ( registerForm.get('messageSummary').hasError('required') ||
                   registerForm.get('messageSummary').hasError('lengthOver400'))
@@ -196,19 +196,35 @@
       </div> PAPILDOMAS INSTITUCIJOS KLAUSIMAS-->
     </fieldset>
 
+   <ng2-google-recaptcha
+      style="margin-bottom: 20px"
+      [siteKey]="recaptchaSiteKey"
+      (onCaptchaComplete)="onCaptchaComplete($event)">
+    </ng2-google-recaptcha>
 
-    <div *ngIf="registerForm.invalid && submitAttempt" class="message error" data-component="message">
-      Suveskite duomenis teisingai!  </div>
-    <div *ngIf="registerForm.valid && submitAttempt && submitAccept" class="message success" data-component="message">
-      Sveikiname. Sėkmingai užsiregistravote! </div>
-    <div *ngIf="!receivedEditData && receiveAttempt" class="message error" data-component="message">
-      Nėra tokio kodo!  </div>
+    <!--REGISTRACIJOS MYGTUKAS-->
+    <div class="form-item form-buttons">
+      <div *ngIf="registerForm.invalid && submitAttempt " class="message error" data-component="message">
+        Suveskite duomenis teisingai!  </div>
+      <div *ngIf="!token && submitAttempt && !submitAccept " class="message error" data-component="message">
+        Užpildykite Captcha!  </div>
+      <div *ngIf="!receivedEditData && receiveAttempt" class="message error" data-component="message">
+        Nėra tokio kodo!  </div>
+      <div *ngIf="registerForm.valid && submitAttempt && submitAccept && token " class="message success" data-component="message">
+        Sveikiname. Sėkmingai užsiregistravote! </div>
+    </div>
 
     <!--REGISTRACIJOS MYGTUKAS-->
     <div class="row gutters">
-      <div class="col col-6">
+      <div *ngIf="!receivedEditData" class="col col-6">
         <div class="form-item">
           <button class="button red" type="submit" (click)="initSubmit()">Registruotis</button>
+        </div>
+      </div>
+      <div *ngIf="receivedEditData" class="col col-6">
+        <div class="form-item">
+          <button class="button red outline" (click)="updateForm(event)" >Išsaugoti formą</button>
+          <button class="button red"  >Ištrinti formą</button>
         </div>
       </div>
       <div class="col col-6">
@@ -219,9 +235,10 @@
           </div>
         </div>
       </div>
+
+
+
     </div>
-
-
   </form>
 </div>
 
