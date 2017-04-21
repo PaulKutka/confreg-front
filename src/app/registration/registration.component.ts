@@ -1,15 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ParticipantService} from 'services/participant.service';
-import {CustomValidators} from 'ng2-validation';
-import {UsernameValidator} from '../validators/validationEmail'
+import {ParticipantService} from '../../services/participant.service';
+import {CustomValidator } from '../validators/validationEmail';
 
 import { UniqueCode } from '../uniqueCode';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css'],
   providers: [ParticipantService]
 })
 
@@ -33,14 +31,14 @@ export class RegistrationComponent implements OnInit {
   buildForm(): void {
     this.registerForm = this.fb.group({
       educationalDegree: ['Daktaras', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      phoneNumber: ['', [Validators.required, CustomValidators.number]],
-      email: ['', [Validators.required, CustomValidators.email]],
-      institution: ['', Validators.required],
-      messageName: ['', Validators.required],
-      messageAuthorsAndAffiliations: ['', Validators.required],
-      messageSummary: ['', [Validators.required, UsernameValidator.lengthOver400]],
+      firstName: ['', [Validators.required, Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.minLength(2)]],
+      phoneNumber: ['', [Validators.required, Validators.minLength(2), CustomValidator.phone]],
+      email: ['', [Validators.required, CustomValidator.emailRegex]],
+      institution: ['', [Validators.required, Validators.minLength(2)]],
+      messageName: ['', [Validators.required, Validators.minLength(2)]],
+      messageAuthorsAndAffiliations: ['', [Validators.required, Validators.minLength(2)]],
+      messageSummary: ['', [Validators.required, CustomValidator.length400]],
       needsRoom: ['Ne', Validators.required],
       roomType: [''],
       hasEscort: ['Ne', Validators.required],
@@ -66,12 +64,12 @@ export class RegistrationComponent implements OnInit {
           educationalDegree: [data.educationalDegree, Validators.required],
           firstName: [data.firstName, Validators.required],
           lastName: [data.lastName, Validators.required],
-          phoneNumber: [data.phoneNumber, Validators.compose([Validators.required, CustomValidators.number])],
-          email: [data.email, Validators.compose([Validators.required, CustomValidators.email])],
+          phoneNumber: [data.phoneNumber, Validators.compose([Validators.required])],
+          email: [data.email, Validators.compose([Validators.required, CustomValidator.emailRegex])],
           institution: [data.institution, Validators.required],
           messageName: [data.messageName, Validators.required],
           messageAuthorsAndAffiliations: [data.messageAuthorsAndAffiliations, Validators.required],
-          messageSummary: [data.messageSummary, Validators.compose([Validators.required, UsernameValidator.lengthOver400])],
+          messageSummary: [data.messageSummary, Validators.compose([Validators.required, CustomValidator.length400])],
           needsRoom: [data.needsRoom, Validators.required],
           roomType: [data.roomType],
           hasEscort: [data.hasEscort, Validators.required],
