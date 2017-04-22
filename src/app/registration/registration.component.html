@@ -207,6 +207,14 @@
       </div>
     </fieldset>
 
+    
+    <ng2-google-recaptcha 
+      *ngIf="!received"
+      style="margin-bottom: 20px"
+      [siteKey]="recaptchaSiteKey"
+      (onCaptchaComplete)="onCaptchaComplete($event)">
+    </ng2-google-recaptcha>
+    
 
     <div *ngIf="submitted"
          class="message success"
@@ -231,16 +239,15 @@
          data-component="message">
       {{ 'messages.edited' | translate}}
     </div>
-
-
-
+ 
     <div class="row gutters">
       <div class="col col-6">
         <div class="form-item">
-          <button *ngIf="!received"
+          <button *ngIf="!received "
                   type="submit"
                   class="button"
-                  [disabled]="registerForm.invalid || received">
+                  [disabled]="registerForm.invalid || !token
+                  || received">
             {{ 'buttons.register' | translate}}
           </button>
           <div *ngIf="received">

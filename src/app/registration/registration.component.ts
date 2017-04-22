@@ -23,6 +23,15 @@ export class RegistrationComponent implements OnInit {
   deleted = false;
   registerForm: FormGroup;
 
+  token = false;
+  private recaptchaSiteKey = '6LcqNB4UAAAAABngCqXQNuJIB-wGYbqGkAd-aprd';
+
+  private onCaptchaComplete(response: any) {
+    if (response.success) {
+      this.token = response.success;
+    }
+    this.deleted = false;
+  }
 
   constructor(private fb: FormBuilder,
               private participantService: ParticipantService) {
@@ -85,16 +94,17 @@ export class RegistrationComponent implements OnInit {
     this.edited = false;
     this.pressedReceive = false;
     this.received = false;
+    this.token =false;
   }
 
 
-  onKey(event: any): void { // without type info
+  onKey(event: any): void {
     UniqueCode.uniqueCode = event.target.value;
   }
 
   onSubmit(): void {
       console.log(this.registerForm);
-      if (this.registerForm.valid && this.registerForm.touched) {
+      if (this.registerForm.valid && this.registerForm.touched && this.token) {
         this.participantService.insertParticipant(this.registerForm.value);
         this.registerForm.reset();
 

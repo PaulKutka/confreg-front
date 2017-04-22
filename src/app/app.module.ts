@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {TranslateModule} from 'ng2-translate';
+import { Ng2GoogleRecaptchaModule }  from 'ng2-google-recaptcha';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {TranslateModule} from 'ng2-translate';
     BrowserModule,
     ReactiveFormsModule,
     HttpModule,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
+    Ng2GoogleRecaptchaModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
