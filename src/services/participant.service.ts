@@ -20,6 +20,7 @@ export class ParticipantService {
   constructor (private http: Http) { }
 
   insertParticipant(participant: Participant) {
+    delete participant["id"];
     const body = JSON.stringify(participant);
     return this.http.post(this.insertDataSource, body, {headers: this.headers})
       .toPromise()
