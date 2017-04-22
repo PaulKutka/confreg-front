@@ -61,6 +61,7 @@ export class RegistrationComponent implements OnInit {
     });
     this.pressedReceive = true;
     // previous parameters
+    this.edited = false;
     this.deleted = false;
     this.submitted = false;
   }

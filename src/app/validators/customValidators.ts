@@ -21,6 +21,11 @@ export class CustomValidator {
     };
   }
   static phone(control: FormControl) {
-    return isNumeric(control.value);
+    const PHONE_REGEXP = /^(0|[1-9][0-9]*|[1-9][0-9]{0,2}(,[0-9]{3,3})*)$/i;
+    return PHONE_REGEXP.test(control.value) ? null : {
+      validatePhone: {
+        valid: false
+      }
+    };
   }
 }
