@@ -18,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   submitAccept = false;
   token = false;
 
-  private recaptchaSiteKey = '6Lf_RR0UAAAAAFnJLZEkeXmvNK6yUqFW-3V8DAsD';
+  private recaptchaSiteKey = '6LcqNB4UAAAAABngCqXQNuJIB-wGYbqGkAd-aprd';
 
   private onCaptchaComplete(response: any) {
     // console.log('reCAPTCHA response recieved:');
