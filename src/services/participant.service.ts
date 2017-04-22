@@ -37,12 +37,14 @@ export class ParticipantService {
 
   deleteParticipant(id: number) {
     this.http.delete(this.deleteDataSource + id)
+      .toPromise()
       .catch(this.handleError);
+
   }
 
   editParticipant(id: number, participant: Participant) {
     const body = JSON.stringify(participant);
-    return this.http.post(this.editDataSource + id, body, {headers: this.headers})
+    return this.http.put(this.editDataSource + id, body, {headers: this.headers})
       .toPromise()
       .catch(this.handleError);
   }

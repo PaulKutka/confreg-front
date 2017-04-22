@@ -67,7 +67,7 @@ export class RegistrationComponent implements OnInit {
 
   onEdit(): void {
     const id = this.registerForm.get('id').value;
-    // this.participantService.editParticipant(id, this.registerForm.value);
+    this.participantService.editParticipant(id, this.registerForm.value);
     this.edited = true;
 
     // previous parameters
@@ -76,7 +76,7 @@ export class RegistrationComponent implements OnInit {
 
   onDelete(): void {
     const id = this.registerForm.get('id').value;
-    // this.participantService.deleteParticipant(id);
+    this.participantService.deleteParticipant(id);
     this.registerForm.reset();
     this.deleted = true;
 
